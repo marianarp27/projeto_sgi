@@ -4,6 +4,8 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amiko">
+
       <!--========== BOX ICONS ==========-->
       <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
         
@@ -12,6 +14,7 @@
         
       <!--============= CSS =============-->
       <link rel="stylesheet" href="assets/css/styles.css">
+      <link rel="stylesheet" href="assets/css/style_menu.css">
 
       <title>La Redoute</title>
     </head>
@@ -38,7 +41,7 @@
 
       <!-- ============== MENU - HEADER  ============== -->
       
-      <nav class="navbar navbar-expand-lg navbar-light bg-light py-4">
+      <nav class="navbar navbar-expand-lg navbar-light py-4">
         <div class="container">
           <!-- LOGOTIPO -->
           <a class="navbar-brand" href="#">
@@ -53,8 +56,55 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <ul class="navbar-nav m-auto mb-2 mb-lg-0">              
-              <li class="nav-item"> <a class="nav-link" href="#">Moda </a> </li>
-              <li class="nav-item active"><a class="nav-link" href="#"> Casa </a></li>
+              <li class="nav-item"><a class="nav-link" href="#"> Moda </a></li>            
+
+              <!-- ========== CASA ========== -->
+              <li class="nav-item dropdown">
+                <a class="nav-link active" href="#" id="navbarDropdown"  data-bs-toggle="dropdown" aria-expanded="false">
+                  Casa
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  
+                  <div class="information-grid">
+                    <div class="dropdown-colum">
+                      <div class="dropdown-heading">Móveis</div>
+                      <div class="dropdown-links">
+                        <a href="#" class="link_menu">Sala de estar</a>
+                        <a href="#" class="link_menu">Sala de jantar</a>
+                        <a href="#" class="link_menu">Quarto</a>
+                        <a href="#" class="link_menu">Arrumação</a>
+                        <a href="#" class="link_menu">Jardim</a>
+                        <a href="#" class="link_menu">Casas de banho</a>
+                        <a href="#" class="link_menu">Ver todos artigos </a>
+                      </div>
+                    </div>
+
+                    <div class="dropdown-colum">
+                      <div class="dropdown-heading">Têxtil</div>
+                      <div class="dropdown-links">
+                        <a href="#" class="link_menu">Roupa de cama</a>
+                        <a href="#" class="link_menu">Atoalhados</a>
+                        <a href="#" class="link_menu">Cortinados & estores</a>
+                        <a href="#" class="link_menu">Ver todos artigos </a>
+                      </div>
+                    </div>
+
+                    <div class="dropdown-colum">
+                      <div class="dropdown-heading">Decoração</div>
+                      <div class="dropdown-links">
+                        <a href="#" class="link_menu">Acessórios & decoração</a>
+                        <a href="#" class="link_menu">Toalhas</a>
+                        <a href="#" class="link_menu">Iluminação</a>
+                        <a href="#" class="link_menu">Decoração de parede</a>
+                        <a href="#" class="link_menu">Loiça & talheres</a>
+                        <a href="#" class="link_menu">Ver todos artigos </a>
+                      </div>
+                    </div>
+                  </div>                  
+              
+                </ul>
+              </li>
+              
               <li class="nav-item"><a class="nav-link" href="#"> Eletrodomésticos </a></li>
               <li class="nav-item"><a class="nav-link" href="#"> Magazine de tendências </a></li>
               <li class="nav-item"><a class="nav-link" href="#"> Especial Natal </a></li>
@@ -76,10 +126,23 @@
 
 
       
-      
-      
       <div class="container">
       <!-- ============== PAGE CONTENT STARTS ============== -->
+
+      <!-- BANNER -->
+      <div class="card text-center">
+        <div class="card-body">
+          Móveis
+        </div>
+      </div>
+
+      <!-- --------- breadcrumb --------- -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">La Redoute</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Móveis</li>
+        </ol>
+      </nav>
 
       
        
@@ -87,7 +150,7 @@
       </div> 
 
 
-      <!-- ========================= FOOTER ========================= -->
+      <!-- ========================= START FOOTER ========================= -->
       <div class="footer">
         <div class="container">
 
@@ -96,7 +159,7 @@
             <h5> Subscreva à nossa newsletter</h5>
               <div class="row">
                 <div class="col-md-4 my-auto">
-                  <p class="">Subscreva a nossa newsletter e receba uma <b>redução de 20€</b> em compras a partir de 100€</p>
+                  <p class="">Subscreva a nossa newsletter e receba uma redução de 20€ em compras a partir de 100€</p>
                 </div>
 
                 <div class="col my-auto"> <input type="email" class="form-control" placeholder="Indique o seu e-mail"> </div>
@@ -140,8 +203,23 @@
               <a class="link_footer">Espaço B2B</a>
             </div>
             <!-- ---- 5 coluna ---- -->
-            <div class="col">
+            <div class="col links_pagamentos">
               <h6>Pagamento 100% seguro</h6>
+              <div class="box_container">
+                <div class="box_img"> <img src="assets/img/multibanco.png" alt="Logotipo Multibanco"> </div>
+                <div class="box_img"> <img src="assets/img/mbWay.png" alt="Logotipo MB-Way"> </div>
+                <div class="box_img"> <img src="assets/img/mastercard.png" alt="Logotipo Mastercard"> </div>
+                <div class="box_img"> <img src="assets/img/paypal.png" alt="Logotipo Paypal"> </div>
+                <div class="box_img"> <img src="assets/img/visa.jpg" alt="Logotipo Visa"> </div>
+                <div class="box_img"> <img src="assets/img/oney.png" alt="Logotipo Oney"> </div>
+            </div>
+
+              <!-- <img src="assets/img/multibanco.png" alt="Logotipo Multibanco">
+              <img src="assets/img/mbWay.png" alt="Logotipo MB-Way">
+              <img src="assets/img/mastercard.png" alt="Logotipo Mastercard">
+              <img src="assets/img/paypal.png" alt="Logotipo Paypal">
+              <img src="assets/img/visa.jpg" alt="Logotipo Visa">
+              <img src="assets/img/oney.png" alt="Logotipo Oney"> -->
 
             </div>
           </div>

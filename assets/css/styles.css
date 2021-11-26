@@ -11,6 +11,10 @@ html {
   min-height: 100%;
 }
 
+body {
+  font-family: "Amiko", sans-serif;
+}
+
 /* -------------  BUTTON GREEN  ------------- */
 .btn_green {
   background-color: var(--green);
@@ -31,9 +35,13 @@ html {
 }
 
 /* -------------  INPUT GREEN  ------------- */
-.Nletter_input_btn .form-control:focus {
+.newsletter .form-control:focus {
   box-shadow: 0 0 0 .25rem rgba(114, 165, 129, 0.5);
   border-color: var(--green);
+}
+
+.form-control::placeholder {
+  color: #6c757d85;
 }
 
 
@@ -62,10 +70,11 @@ html {
 .top_info .bx{
   margin-right: .5rem;
 }
+
+
 /* ----------------------------------------------- */
 /* --------------- MENU - HEATHER  --------------- */
 /* ----------------------------------------------- */
-
 
 .menu_icons{
   cursor: pointer;
@@ -73,6 +82,31 @@ html {
 
 
 
+/* ----------------------------------------------------------------- */
+/* ------------------- BANNER - IMG + breadcrumb ------------------- */
+/* ----------------------------------------------------------------- */
+.card {
+  background: url(../img/moveis_img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: none;
+}
+.card-body {
+  font-size: x-large;
+  font-weight: 600;
+  text-transform: uppercase; 
+  padding: 100px 0; 
+}
+
+.breadcrumb{
+  margin-top: 1rem;
+  font-size: small;
+}
+.breadcrumb a{
+  color: var(--green);
+  text-decoration: none;
+}
 
 /* ------------------------------------------- */
 /* ---------------  NEWSLETTER --------------- */
@@ -98,6 +132,7 @@ html {
   text-transform: uppercase;
   font-weight: 600;  
 }
+
 
 /* --------------------------------------- */
 /* ---------------  FOOTER --------------- */
@@ -151,6 +186,30 @@ hr{
 }
 
 
+/* --- footer hover effect --- */
+.footer .link_footer:hover{
+  text-decoration: underline;
+}
 
+/* -- footer metodos pagamento IMG*/
+.box_container{  
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto;  
+  margin-left: auto;
+  margin-right: auto;
+}
+.box_img{
+  background-color: white;
+  border-radius: .3rem;
+  margin: 0 5px 5px 0;
+  padding: .5rem;
+}
+.box_img img{
+  height: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
