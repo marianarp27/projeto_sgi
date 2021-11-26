@@ -67,6 +67,10 @@ html {
 /* ----------------------------------------------- */
 
 
+.menu_icons{
+  cursor: pointer;
+}
+
 
 
 
@@ -145,3 +149,8 @@ hr{
   color: var(--soft-white);
   cursor: pointer;
 }
+
+
+
+
+
