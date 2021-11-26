@@ -1,31 +1,147 @@
-/*===== GOOGLE FONTS =====*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
-
-/*===== VARIABLES CSS =====*/
 :root {
-  --header-height: 3rem;
+  --green: #72A581;
+  --dark-green: #639773;
+  --white: #ffffff;
+  --soft-white: #f0f0f0;
+}
 
-  /*========== Colors ==========*/
+html {
+  scroll-behavior: smooth;
+  position: relative;
+  min-height: 100%;
+}
 
-  /*========== Font and typography ==========*/
+/* -------------  BUTTON GREEN  ------------- */
+.btn_green {
+  background-color: var(--green);
+  border-color: var(--green);
+  color: var(--white);
+}
+.btn_green:hover {
+  color: var(--white);
+  background-color: var(--dark-green);
+  border-color: var(--dark-green);  
+}
+.btn_green:focus {
+  color: var(--white);
+  background-color: var(--dark-green);
+  border-color: var(--dark-green);
+  box-shadow: 0 0 0 .25rem rgba(114, 165, 129, 0.5);
+  
+}
 
-  /*========== Font weight ==========*/
-  --font-medium: 500;
-  --font-semi-bold: 600;
-
-  /*========== Margenes ==========*/
-  --mb-1: .5rem;
-  --mb-2: 1rem;
-  --mb-3: 1.5rem;
-  --mb-4: 2rem;
-  --mb-5: 2.5rem;
-  --mb-6: 3rem;
-
-  /*========== z index ==========*/
-
+/* -------------  INPUT GREEN  ------------- */
+.Nletter_input_btn .form-control:focus {
+  box-shadow: 0 0 0 .25rem rgba(114, 165, 129, 0.5);
+  border-color: var(--green);
 }
 
 
-html{
-    scroll-behavior: smooth;
+
+/* ---------------------------------------------- */
+/* ---------------  TOP MENU INFO --------------- */
+/* ---------------------------------------------- */
+.top_info{
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.top_info .btn{
+  color: var(--white);
+}
+.top_info .btn:focus {
+  box-shadow: none;  
+}
+.top_info .bxs-phone{
+  margin-left: 2rem;
+}
+.top_info .contacts p{
+  font-size: small;
+  margin-bottom: 0;
+}
+.top_info .bx{
+  margin-right: .5rem;
+}
+/* ----------------------------------------------- */
+/* --------------- MENU - HEATHER  --------------- */
+/* ----------------------------------------------- */
+
+
+
+
+
+/* ------------------------------------------- */
+/* ---------------  NEWSLETTER --------------- */
+/* ------------------------------------------- */
+.newsletter {
+  border: 2px solid var(--green);  
+  background-color: var(--white);
+  position: relative;
+  top: -3rem;
+  margin-top: -2rem;
+}
+.newsletter h5 {
+  color: var(--green);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.newsletter p {
+  font-size: small;
+  color: gray;
+}
+.newsletter .btn {
+  text-transform: uppercase;
+  font-weight: 600;  
+}
+
+/* --------------------------------------- */
+/* ---------------  FOOTER --------------- */
+/* --------------------------------------- */
+.footer {
+  background-color: var(--green);
+  color: var(--white);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer h6, 
+.footer .link_footer,
+.footer .botom-parte {
+  font-size: small;
+}
+
+.footer h6 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.footer .link_footer{
+  display: flex;
+  flex-direction: column;
+  margin: .4rem auto;
+}
+
+/* remove link underline*/
+.footer .sections a,
+.footer .social-media a {
+  color: var(--soft-white);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+hr{
+  margin: .8rem 0;
+}
+
+.social-media .bx {
+  margin: 1rem .7rem 0 0;
+  font-size: 1.3rem;  
+}
+
+.footer .botom-parte .link {
+  padding-left: 2rem;
+  color: var(--soft-white);
+  cursor: pointer;
 }

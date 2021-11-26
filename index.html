@@ -1,37 +1,181 @@
 <!DOCTYPE html>
 <html lang="pt">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!--========== BOX ICONS ==========-->
-        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+      <!--========== BOX ICONS ==========-->
+      <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
         
-        <!--========== CSS ==========-->
-        <link rel="stylesheet" href="assets/css/styles.css">
+      <!--========== BOOTSTRAP ==========-->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        
+      <!--============= CSS =============-->
+      <link rel="stylesheet" href="assets/css/styles.css">
 
-        <title>La Redoute</title>
+      <title>La Redoute</title>
     </head>
     <body>
+      
+      <!-- ============== TOP INFO ============== -->
+      <div class="top_info">
+        <div class="container d-flex justify-content-between">
+          <div class="contacts d-flex justify-content-start align-items-center">
+            <p><i class='bx bx-envelope'></i>contacto@laredoute.pt</p>
+            <p><i class='bx bxs-phone'></i>707 20 10 10 ou 244 810 000</p>
+          </div>
+          
+          <div class="idioma">
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Portugal
+              </button>
+              <ul class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">França</a></li>
+                <li><a class="dropdown-item" href="#">America</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ============== MENU - HEADER  ============== -->
+      
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <!-- LOGOTIPO -->
+          <a class="navbar-brand" href="#">
+            <img src="assets/img/LaRedoute_logo.svg" alt="Logotipo La Redoute"  height="24" class="d-inline-block align-text-top">            
+          </a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- OPCOES MENU -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+
+            <!-- ICONS BARRA MENU -->
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
+          </div>
+        </div>
+      </nav>
+      
+
+      
+      
+      <div class="container">
+      <!-- ============== PAGE CONTENT STARTS ============== -->
+
+      
+       
+      <!-- ============== PAGE CONTENT ENDS ============== -->
+      </div> 
+
+
+      <!-- ========================= FOOTER ========================= -->
+      <div class="footer">
+        <div class="container">
+
+          <!-- ======================= NEWSLETTER =======================-->
+          <div class="newsletter p-4 rounded-2">
+            <h5> Subscreva à nossa newsletter</h5>
+              <div class="row">
+                <div class="col-md-4 my-auto">
+                  <p class="">Subscreva a nossa newsletter e receba uma <b>redução de 20€</b> em compras a partir de 100€</p>
+                </div>
+
+                <div class="col my-auto"> <input type="email" class="form-control" placeholder="Indique o seu e-mail"> </div>
+                <div class="col-auto col-md-3 my-auto"> <button  type="button" class="btn btn_green float-end w-100 ">Subscrever</button> </div>            
+                
+              </div>        
+          </div>
+          <!-- ===================== ENF OF NEWSLETTER =====================-->
         
-        <!--========== SCROLL TOP ==========-->
-        <a href="#" class="scrolltop" id="scroll-top">
-            <i class='bx bx-chevron-up scrolltop__icon'></i>
-        </a>
+          <div class="row sections">
+            <!-- ---- 1 coluna ---- -->
+            <div class="col">
+              <h6>La Redoute</h6>
+              <a class="link_footer">Quem somos</a>
+              <a class="link_footer">Contactos</a>
+              <a class="link_footer">Condições gerais de venda</a>
+              <a class="link_footer">Recrutamento La Redoute</a>
+            </div>
+            <!-- ---- 2 coluna ---- -->
+            <div class="col">
+              <h6>Serviços LaRedoute</h6>
+              <a class="link_footer">Ajuda</a>
+              <a class="link_footer">Guia dos tamanhos</a>
+              <a class="link_footer">Trocas & Devoluções</a>
+              <a class="link_footer">Desinscrição de Newsletter</a>
+              <a class="link_footer">Todos os serviços</a>
+            </div>
+            <!-- ---- 3 coluna ---- -->
+            <div class="col">
+              <h6>Marcas exclusivas</h6>
+              <a class="link_footer">La Redoute Collections</a>
+              <a class="link_footer">La Redoute Intérieurs</a>
+              <a class="link_footer">AM.PM.</a>
+            </div>
+            <!-- ---- 4 coluna ---- -->
+            <div class="col">
+              <h6>Universo La Reoute</h6>
+              <a class="link_footer"> Aplicação mobile La Redoute</a>
+              <a class="link_footer">Blog Magazine tendências</a>
+              <a class="link_footer">Vídeos La Redoute</a>
+              <a class="link_footer">Espaço B2B</a>
+            </div>
+            <!-- ---- 5 coluna ---- -->
+            <div class="col">
+              <h6>Pagamento 100% seguro</h6>
 
-        <!--========== HEADER ==========-->
-        
+            </div>
+          </div>
+          <!-- ---- redes sociais ---- -->
+          <div class="social-media">
+            <a href="#"> <i class='bx bxl-instagram-alt' ></i> </a>
+            <a href="#"> <i class='bx bxl-facebook-square' ></i> </a>
+            <a href="#"> <i class='bx bxl-twitter' ></i> </a>
+            <a href="#"> <i class='bx bxl-pinterest' ></i> </a>
+          </div>
+
+          <hr>
+          <!-- ---- copy-right + links ---- -->
+          <div class="row botom-parte">
+            <div class="col"> <span> 1837 - 2021 @ La Redoute - Vendas à distancia S.A. </span> </div>
+            <div class="col text-end mb-3">
+              <a class="link">La Redoute Collections</a>
+              <a class="link">La Redoute Intérieurs</a>
+              <a class="link">AM.PM.</a>
+            </div>
+          </div>
 
 
+        </div>
+      </div>
+      <!-- ==================== END OF FOOTER ==================== -->
+       
+      <!--========== JS ==========-->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-
-
-        <!--========== FOOTER ==========-->
-
-        <!--========== MAIN JS ==========-->
-        <script src="assets/js/main.js"></script>
-
-        <!--========== THREE JS ==========-->
+      <script src="assets/js/main.js"></script>
         
     </body>
 </html>
