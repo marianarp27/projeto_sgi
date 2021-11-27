@@ -126,6 +126,15 @@ body {
   text-decoration: none;
 }
 
+
+
+.content {
+  width: calc(100% - (200px + 3rem));
+  background-color: chartreuse;
+  float: right;
+  
+}
+
 /* ------------------------------------------- */
 /* ---------------  NEWSLETTER --------------- */
 /* ------------------------------------------- */
