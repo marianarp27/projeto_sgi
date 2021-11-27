@@ -51,7 +51,7 @@ function animar() {
 
 //loader de Gltf + luz
 var carregador = new THREE.GLTFLoader();
-carregador.load( 'cenablender.glb', 
+carregador.load( 'workBenchM.gltf', 
 function ( gltf )
  { 
     gltf.scene.traverse(function(x) { 
