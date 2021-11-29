@@ -3,6 +3,7 @@
   --dark-green: #639773;
   --white: #ffffff;
   --soft-white: #f0f0f0;
+  --desconto: #D07C5C;
 }
 
 html {
@@ -164,23 +165,67 @@ body {
   cursor: pointer;
 }
 
-/* --- section - ver mais  --- */
+/* ------------- PRECO -------------- */
+
+.text_preco p{
+  color: var(--desconto);
+}
+
+/* ------------- DESCONTO ------------ */
+.card_list .btn_desconto {
+  background-color: var(--desconto);
+  color: var(--white);
+  position: absolute;
+  width: 70px;
+  top: 10px;
+  left: calc(100% - 80px);
+  margin: auto;
+  padding: .6rem 1rem .5rem 1rem;
+  border-radius: .25rem;
+}
+
+/* -------------- HOVER  ------------- */
+.card_item .card{ 
+  height: 100%;
+  transition: all .4s ease .2s;
+  border: none;
+  cursor: pointer;
+}
+.card_item .card:hover {
+  height: calc(100% + 50px);  
+  transform: scale(1.07, 1.07);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.card_item .card .button_and_icon {
+  position: absolute;
+  transition: all .2s ease-in 150ms;
+  bottom: 0;
+  width: 100%;
+  opacity: 0;
+  box-shadow: none;
+}
+.card_item .card:hover .button_and_icon  {
+  opacity: 1;
+}
+
+
+
+
+/* ---------------  ver mais  --------------- */
 .ver_mais {
   border-top: solid 1px #adadad;
   padding-top: 1rem;
   margin-top: 2rem;
   margin-bottom: 35rem;
 }
-
 .ver_mais p {
   color: gray;
 }
-
 .ver_mais .btn {
   padding-top: .5rem;
   width: 10rem;
 }
-
 .ver_mais p {
   width: calc(50% - 5rem);
 }
