@@ -81,7 +81,8 @@ body {
 }
 
 .filtros button {
-  font-size: small;
+  /*font-size: small;*/
+  padding-top: .5rem;
 }
 
 /* -- mudar propriedade/cor butão do bootstrap -- */
@@ -103,14 +104,14 @@ body {
 /* ----------------------------------------------------------------- */
 /* ------------------- BANNER - IMG + breadcrumb ------------------- */
 /* ----------------------------------------------------------------- */
-.card {
+.card_banner .card {
   background: url(../img/moveis_img.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   border: none;
 }
-.card-body {
+.card_banner .card-body {
   font-size: x-large;
   font-weight: 600;
   text-transform: uppercase; 
@@ -130,9 +131,58 @@ body {
 
 .content {
   width: calc(100% - (200px + 3rem));
-  background-color: chartreuse;
   float: right;
-  
+}
+
+.content .info_artigos{
+  border-bottom: solid 1px #adadad;
+  padding-bottom: 5px;
+}
+
+.content .info_artigos p{
+  color: gray;
+}
+
+/* ---------------------------------------------- */
+/* ---------------  LISTA ARTIGOS --------------- */
+/* ---------------------------------------------- */
+
+.card_list .card-body p{
+  font-size: small;
+  font-weight: unset;
+}
+
+.card_list .btn {
+  padding-top: .5rem;
+}
+.card_list .btn .bx {
+  color: white;
+}
+
+.button_and_icon .bx{
+  color: var(--green);
+  cursor: pointer;
+}
+
+/* --- section - ver mais  --- */
+.ver_mais {
+  border-top: solid 1px #adadad;
+  padding-top: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 35rem;
+}
+
+.ver_mais p {
+  color: gray;
+}
+
+.ver_mais .btn {
+  padding-top: .5rem;
+  width: 10rem;
+}
+
+.ver_mais p {
+  width: calc(50% - 5rem);
 }
 
 /* ------------------------------------------- */
