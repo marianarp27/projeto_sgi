@@ -17,12 +17,12 @@ var acaoLegExtend;
 var acaoLeftDoor;
 var acaoRightDoor;
 
+
 //VARIÁVEIS PARA BOTÕES HTML
 var ativar = document.getElementById('btn_play');
 var pausar = document.getElementById('btn_pause');
 var parar = document.getElementById('btn_stop');
-/* var reverter = document.getElementById('btn_reverse');
-var ciclo = document.getElementById('menu_loop'); */
+var light = document.getElementById('btn_light');
 
 //camera
 var camara = new THREE.PerspectiveCamera( 70, 800 / 600, 0.1, 500 );
@@ -40,16 +40,11 @@ renderer.render( cena, camara );
 //orbitcontrols
 var controlos = new THREE.OrbitControls( camara, renderer.domElement );
 
-//gridHelper = grelha/chão de referência
-//var grelha = new THREE.GridHelper();
-//cena.add( grelha );
-
 //função de animação
 function animar() { 
     requestAnimationFrame( animar );
     misturador.update( relogio.getDelta()); //ativar misturador
     renderer.render( cena, camara ); 
-    
 } 
 
 //loader de Gltf + luz
@@ -66,7 +61,6 @@ function ( gltf )
     }
 });
     cena.add( gltf.scene ) 
-    //cena = new THREE.Mesh(stoneBenchM); - mexer para a textura
     //clipe animação BenchExtend
     clipeBenchExtend = THREE.AnimationClip.findByName( gltf.animations, 'BenchExtend' );
     acaoBenchExtend = misturador.clipAction( clipeBenchExtend ); 
@@ -88,26 +82,19 @@ function ( gltf )
     
 
 //pontos luz
-var luzPonto1 = new THREE.PointLight( "white" );
-luzPonto1.position.set( 20, 20, 10 ); //original 5,3,5
+var luzPonto1 = new THREE.PointLight( "white", 4, 0, 2);
+luzPonto1.position.set( 10, 5, 10 ); //original 5,3,5, 202010
 cena.add( luzPonto1 );
-var luzPonto2 = new THREE.PointLight( "white" );
-luzPonto2.position.set( 20, 0, 10 ); //original 5,3,5
+var luzPonto2 = new THREE.PointLight( "white", 4, 0, 2);
+luzPonto2.position.set( -10, -5, -10 ); //original 5,3,5, 20,0,10
 cena.add( luzPonto2 );
-/* var luzPonto3 = new THREE.PointLight( "white" );
-luzPonto3.position.set( 10, 0, 15 ); //original 5,3,5
-cena.add( luzPonto3);
-var luzPonto4 = new THREE.PointLight( "white" );
-luzPonto4.position.set( 10, 0, 15 ); //original 5,3,5
-cena.add( luzPonto4); */
 
-
-var luzAmbiente = new THREE.AmbientLight( "white", 5 );
+var luzAmbiente = new THREE.AmbientLight( "white", 1);
 cena.add(luzAmbiente);
 
 var hemilight = new THREE.HemisphereLight(0xffeeb1, 0x080820, 1)
 cena.add(hemilight);
-var spotLight = new THREE.SpotLight(0xFFA95C, 4)
+var spotLight = new THREE.SpotLight(0xFFA95C, 1)
 spotLight.castShadow = true
 cena.add(spotLight);
 
@@ -141,6 +128,17 @@ function fazerpausa(){
     acaoRightDoor.paused = true;
 }
 pausar.addEventListener("click", fazerpausa);
+
+//LIGHT
+function fazerlight(){
+    var luzPonto1 = new THREE.PointLight( "white", 4,0, 2);
+    luzPonto1.position.set( 10, 5, 10 ); //original 5,3,5, 202010
+    cena.add( luzPonto1 );
+    var luzPonto2 = new THREE.PointLight( "white", 4, 0, 2 );
+    luzPonto2.position.set( -10, -5, -10 ); //original 5,3,5, 20,0,10
+    cena.add( luzPonto2 );
+}
+light.addEventListener("click", fazerlight);
 
 //animar - sempre a última função
 animar();
