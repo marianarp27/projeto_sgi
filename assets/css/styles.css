@@ -73,20 +73,22 @@ body {
 }
 
 
-/* ------------------------------------------------- */
-/* --------------- HEATHER - FILTROS --------------- */
-/* ------------------------------------------------- */
+/* ----------------------------------------------------------------- */
+/* ---------------  FILTROS  +  ALTER COLOR BOOTSTRAP --------------- */
+/* ----------------------------------------------------------------- */
 
-.menu_icons{
-  cursor: pointer;
+.total_artigos, .ordenar_artigos {
+  font-size: smaller;
 }
-
+.accordion-button{
+  font-size: small;
+}
 .filtros button {
-  /*font-size: small;*/
+  font-size: smaller;
   padding-top: .5rem;
 }
 
-/* -- mudar propriedade/cor butão do bootstrap -- */
+/* ---- color btn bootstrap ---- */
 .btn-outline-success {
   color: var(--dark-green);
   border-color: var(--green);
@@ -130,36 +132,34 @@ body {
 
 
 
-.content {
-  width: calc(100% - (200px + 3rem));
-  float: right;
-}
-
-.content .info_artigos{
-  border-bottom: solid 1px #adadad;
-  padding-bottom: 5px;
-}
-
-.content .info_artigos p{
-  color: gray;
-}
 
 /* ---------------------------------------------- */
 /* ---------------  LISTA ARTIGOS --------------- */
 /* ---------------------------------------------- */
 
+.content {
+  width: calc(100% - (175px + 3rem));
+  float: right;
+}
+.content .info_artigos{
+  border-bottom: solid 1px #adadad;
+  padding-bottom: 5px;
+}
+.content .info_artigos p{
+  color: gray;
+}
+
+
 .card_list .card-body p{
   font-size: small;
   font-weight: unset;
 }
-
 .card_list .btn {
   padding-top: .5rem;
 }
 .card_list .btn .bx {
   color: white;
 }
-
 .button_and_icon .bx{
   color: var(--green);
   cursor: pointer;
@@ -184,22 +184,25 @@ body {
   border-radius: .25rem;
 }
 
-/* -------------- HOVER  ------------- */
+
+/* ---------- CARD ARTIGO HOVER  --------- */
 .card_item .card{ 
   height: 100%;
-  transition: all .4s ease .2s;
+  margin-bottom: 2rem;
+  transition: all .3s ease-in-out;
   border: none;
   cursor: pointer;
 }
 .card_item .card:hover {
-  height: calc(100% + 50px);  
+  z-index:100;
+  height: calc(100% + 20px);  
   transform: scale(1.07, 1.07);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .card_item .card .button_and_icon {
   position: absolute;
-  transition: all .2s ease-in 150ms;
+  transition: all .2s linear;
   bottom: 0;
   width: 100%;
   opacity: 0;
