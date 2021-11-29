@@ -156,7 +156,7 @@
 
           <div class="col px-0 myCanvas"></div>
 
-          <div class="col artigo_info">
+          <div class="col artigo_info ms-4">
             <h5 class="mb-3">Mesa de jardinagem, em acácia, Wassif</h5>
             <p class="descricao mb-3">A superfície de trabalho em zinco é robusta e fácil de limpar. 
               Graças às várias arrumações e à extensão retrátil, vai ser o jardineiro mais organizado! </p>
@@ -172,38 +172,69 @@
 
             <h3 class="mb-5">299.00€</h3>
 
-            <div class="select_comp">
-           
-              
-            </div>
-
-            <div class="btn_option d-flex justify-content-between" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <!-- button list options - SIZE -->
+            <div class="btn_option mb-4 d-flex justify-content-between" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightSize" aria-controls="offcanvasRightSize">
               <div class="btn_opt">
                 <p> Dimensão: </p>
-                <span class="option_selected">comp. 100 x prof. 50 x alt. 90 cm</span>
+                <span id="option_selected_size">...</span>
               </div>              
               <i class='bx bx-right-arrow d-flex align-items-center'></i>
             </div>
 
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <!-- button list options - COLOR -->
+            <div class="btn_option mb-4 d-flex justify-content-between" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightColor" aria-controls="offcanvasRightColor">
+              <div class="btn_opt">
+                <p> Cores: </p>
+                <span id="option_selected_color">...</span>
+              </div>              
+              <i class='bx bx-right-arrow d-flex align-items-center'></i>
+            </div>
+
+            <!-- overlay com opcoes - SIZE -->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightSize" aria-labelledby="offcanvasRightLabel">
               <div class="offcanvas-header">
                 <h5 id="offcanvasRightLabel">Dimensões</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <button type="button" id="btn_select" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
               <div class="offcanvas-body">
-                <div class="select_size">
-                  <div class="option d-flex align-items-center selected">
-                    <p class="mb-0">comp. 100 x prof. 50 x alt. 90 cm</p>
-                  </div>
 
-                  <div class="option d-flex align-items-center">
-                    <p class="mb-0">comp. 150 x prof. 50 x alt. 100 cm</p>
-                  </div>
+                  <label class="select_btn "> <p class="mb-0"> comp. 100 x prof. 50 x alt. 90 cm </p>
+                    <input type="radio" name="size" value="100x50x90" onclick="selectOptions_size()" checked>
+                  </label>
 
-                </div>
+                  <label class="select_btn"> <p class="mb-0"> comp. 150 x prof. 50 x alt. 100 cm </p>
+                    <input type="radio" name="size" value="150x50x100" onclick="selectOptions_size()">
+                  </label>
+
               </div>
             </div>
 
+            <!-- overlay com opcoes - COLOR -->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightColor" aria-labelledby="offcanvasRightLabel">
+              <div class="offcanvas-header">
+                <h5 id="offcanvasRightLabel">Cores</h5>
+                <button type="button" id="btn_select1" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+
+                  <label class="select_btn"> <p class="mb-0"> Castanho </p>
+                    <input type="radio" name="color" value="Castanho" onclick="selectOptions_color()" checked>
+                  </label>
+
+                  <label class="select_btn"> <p class="mb-0"> Branco </p>
+                    <input type="radio" name="color" value="Branco" onclick="selectOptions_color()">
+                  </label>
+
+                  <label class="select_btn"> <p class="mb-0"> Beje </p>
+                    <input type="radio" name="color" value="Beje" onclick="selectOptions_color()">
+                  </label>
+
+                  <label class="select_btn"> <p class="mb-0"> Preto </p>
+                    <input type="radio" name="color" value="Preto" onclick="selectOptions_color()">
+                  </label>
+
+              </div>
+            </div>
 
 
           </div>
@@ -325,6 +356,7 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
       <script src="assets/js/script.js"></script>
+
         
     </body>
 </html>

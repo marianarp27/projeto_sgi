@@ -61,22 +61,38 @@
 /* --------------------------------------------------------- */
 /* ---------------- SLIDE SELECT OPTIONS ------------------ */
 /* --------------------------------------------------------- */
+label > input[type="radio"] {
+  display: none;
+}
 
-.offcanvas-body .option {
+#option_selected_color,
+#option_selected_size {
+  color: gray;
+  font-size: smaller;
+}
+
+.offcanvas-body .select_btn {
   border: 1px solid rgb(211, 211, 211);
   height: 5rem;
   border-radius: .35rem;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
   cursor: pointer;
+  width: 100%;
+  align-items: center;
+  display: flex;
 }
 
-.offcanvas-body .option.selected {
+.offcanvas-body .select_btn:hover {
+  text-decoration: underline;
+  border-color: var(--green);
+}
+
+.offcanvas-body .select_btn.btn_selected {
   border: 2px solid var(--green);
 }
 
-.offcanvas-body .option{
-  padding-left: 1rem;
-  margin-bottom: 1rem;
-}
+
 .offcanvas-body {
   margin: 0 1.5rem;
 }
