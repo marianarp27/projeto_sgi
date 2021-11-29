@@ -1,5 +1,6 @@
 //cena
 var cena = new THREE.Scene();
+cena.background = new THREE.Color( 0xCFBDA6 );
 
 //canvas
 var meuCanvas = document.getElementById( 'meuCanvas' );
@@ -11,15 +12,17 @@ var relogio = new THREE.Clock();
 var misturador = new THREE.AnimationMixer(cena);
 
 //Ações
-var acaolocy;
-var acaoRotz;
+var acaoBenchExtend;
+var acaoLegExtend;
+var acaoLeftDoor;
+var acaoRightDoor;
 
 //VARIÁVEIS PARA BOTÕES HTML
 var ativar = document.getElementById('btn_play');
 var pausar = document.getElementById('btn_pause');
 var parar = document.getElementById('btn_stop');
-var reverter = document.getElementById('btn_reverse');
-var ciclo = document.getElementById('menu_loop');
+/* var reverter = document.getElementById('btn_reverse');
+var ciclo = document.getElementById('menu_loop'); */
 
 //camera
 var camara = new THREE.PerspectiveCamera( 70, 800 / 600, 0.1, 500 );
@@ -38,8 +41,8 @@ renderer.render( cena, camara );
 var controlos = new THREE.OrbitControls( camara, renderer.domElement );
 
 //gridHelper = grelha/chão de referência
-var grelha = new THREE.GridHelper();
-cena.add( grelha );
+//var grelha = new THREE.GridHelper();
+//cena.add( grelha );
 
 //função de animação
 function animar() { 
@@ -51,71 +54,124 @@ function animar() {
 
 //loader de Gltf + luz
 var carregador = new THREE.GLTFLoader();
-carregador.load( 'workBenchM.gltf', 
+carregador.load( 'workBench_certo.gltf', 
 function ( gltf )
  { 
     gltf.scene.traverse(function(x) { 
-    if (x instanceof THREE.Light) 
-    x.visible = false });
+    /* if (x instanceof THREE.Light) 
+    x.visible = false }); */
+    if (x.isMesh) {
+        x.castShadow = true
+        x.receiveShadow = true			
+    }
+});
     cena.add( gltf.scene ) 
-    //clipe animação LOCY
-    clipeLocy = THREE.AnimationClip.findByName( gltf.animations, 'LocY' );
-    acaolocy = misturador.clipAction( clipeLocy ); 
-    //acaolocy.play();//fim clipe animação LOCY - removido no ponto 4
-    //clipe animação ROTZ
-    clipeRotz = THREE.AnimationClip.findByName( gltf.animations, 'RotZ' );
-    acaoRotz = misturador.clipAction( clipeRotz ); 
-    //acaoRotz.play();//fim clipe animação ROTZ - removido no ponto 4
-
+    //cena = new THREE.Mesh(stoneBenchM); - mexer para a textura
+    //clipe animação BenchExtend
+    clipeBenchExtend = THREE.AnimationClip.findByName( gltf.animations, 'BenchExtend' );
+    acaoBenchExtend = misturador.clipAction( clipeBenchExtend ); 
+    //clipe animação LegExtend
+    clipeLegExtend = THREE.AnimationClip.findByName( gltf.animations, 'LegExtend' );
+    acaoLegExtend = misturador.clipAction( clipeLegExtend ); 
+    //clipe animação LeftDoor
+    clipeLeftDoor = THREE.AnimationClip.findByName( gltf.animations, 'LeftDoor' );
+    acaoLeftDoor = misturador.clipAction( clipeLeftDoor ); 
+    //clipe animação RightDoor
+    clipeRightDoor = THREE.AnimationClip.findByName( gltf.animations, 'RightDoor' );
+    acaoRightDoor = misturador.clipAction( clipeRightDoor ); 
+    //apenas repetir uma vez
+    acaoBenchExtend.setLoop(THREE.LoopOnce);
+    acaoLegExtend.setLoop(THREE.LoopOnce);
+    acaoLeftDoor.setLoop(THREE.LoopOnce);
+    acaoRightDoor.setLoop(THREE.LoopOnce);
 } );
     
 
 //pontos luz
 var luzPonto1 = new THREE.PointLight( "white" );
-luzPonto1.position.set( 5, 3, 5 );
+luzPonto1.position.set( 20, 20, 10 ); //original 5,3,5
 cena.add( luzPonto1 );
+var luzPonto2 = new THREE.PointLight( "white" );
+luzPonto2.position.set( 20, 0, 10 ); //original 5,3,5
+cena.add( luzPonto2 );
+/* var luzPonto3 = new THREE.PointLight( "white" );
+luzPonto3.position.set( 10, 0, 15 ); //original 5,3,5
+cena.add( luzPonto3);
+var luzPonto4 = new THREE.PointLight( "white" );
+luzPonto4.position.set( 10, 0, 15 ); //original 5,3,5
+cena.add( luzPonto4); */
+
+
+var luzAmbiente = new THREE.AmbientLight( "white", 5 );
+cena.add(luzAmbiente);
+
+var hemilight = new THREE.HemisphereLight(0xffeeb1, 0x080820, 1)
+cena.add(hemilight);
+var spotLight = new THREE.SpotLight(0xFFA95C, 4)
+spotLight.castShadow = true
+cena.add(spotLight);
+
 
 //ANIMAÇÕES DOS BOTÕES
 //PLAY
 function fazerplay(){
-    acaoRotz.play();
+    fazerstop();
+    acaoBenchExtend.play();
+    acaoLegExtend.play();
+    acaoLeftDoor.play();
+    acaoRightDoor.play();  
 }
 ativar.addEventListener("click", fazerplay);
 
+
 //STOP
 function fazerstop(){
-    acaoRotz.stop();
+    acaoBenchExtend.stop();
+    acaoLegExtend.stop();
+    acaoLeftDoor.stop();
+    acaoRightDoor.stop();
 }
 parar.addEventListener("click",fazerstop);
 
 //PAUSA
 function fazerpausa(){
-    acaoRotz.paused = true;
+    acaoBenchExtend.paused = true;
+    acaoLegExtend.paused = true;
+    acaoLeftDoor.paused = true;
+    acaoRightDoor.paused = true;
 }
 pausar.addEventListener("click", fazerpausa);
 
-//RESET COM TIMESCALE
-function reverteranimacao(){
-    acaoRotz.timeScale = -1;
-}
-reverter.addEventListener("click", reverteranimacao);
-
-// ciclo setLoop
-function loop(){
-    if(ciclo.value == '1'){
-        acaoRotz.setLoop(THREE.LoopOnce);
-    }
-    if(ciclo.value == '2'){
-        acaoRotz.setLoop(THREE.LoopRepeat);
-    }
-    if(ciclo.value == '3'){
-        acaoRotz.setLoop(THREE.LoopPingPong);
-    }
-}
-ciclo.addEventListener("click",loop);
-
 //animar - sempre a última função
 animar();
+
+//RESET COM TIMESCALE
+/* function reverteranimacao(){
+    acaoBenchExtend.timeScale = -1;
+    acaoLegExtend.timeScale = -1;
+    acaoLeftDoor.timeScale = -1;
+    acaoRightDoor.timeScale = -1;
+}
+reverter.addEventListener("click", reverteranimacao); */
+
+// ciclo setLoop
+/* function loop(){
+    if(ciclo.value == '1'){
+        
+    }
+    if(ciclo.value == '2'){
+        acaoLegExtend.setLoop(THREE.LoopRepeat);
+    }
+    if(ciclo.value == '3'){
+        acaoBenchExtend.setLoop(THREE.LoopPingPong);
+        acaoLegExtend.setLoop(THREE.LoopPingPong);
+        acaoLeftDoor.setLoop(THREE.LoopPingPong);
+        acaoRightDoor.setLoop(THREE.LoopPingPong);
+    }
+}
+ciclo.addEventListener("click",loop); */
+
+
 
 
 
