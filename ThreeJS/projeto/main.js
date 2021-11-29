@@ -1,6 +1,6 @@
 //cena
 var cena = new THREE.Scene();
-cena.background = new THREE.Color( 0xffffff );
+cena.background = new THREE.Color( 0xCFBDA6 );
 
 //canvas
 var meuCanvas = document.getElementById( 'meuCanvas' );
@@ -21,8 +21,8 @@ var acaoRightDoor;
 var ativar = document.getElementById('btn_play');
 var pausar = document.getElementById('btn_pause');
 var parar = document.getElementById('btn_stop');
-var reverter = document.getElementById('btn_reverse');
-var ciclo = document.getElementById('menu_loop');
+/* var reverter = document.getElementById('btn_reverse');
+var ciclo = document.getElementById('menu_loop'); */
 
 //camera
 var camara = new THREE.PerspectiveCamera( 70, 800 / 600, 0.1, 500 );
@@ -54,12 +54,17 @@ function animar() {
 
 //loader de Gltf + luz
 var carregador = new THREE.GLTFLoader();
-carregador.load( 'workBenchM.gltf', 
+carregador.load( 'workBench_certo.gltf', 
 function ( gltf )
  { 
     gltf.scene.traverse(function(x) { 
-    if (x instanceof THREE.Light) 
-    x.visible = false });
+    /* if (x instanceof THREE.Light) 
+    x.visible = false }); */
+    if (x.isMesh) {
+        x.castShadow = true
+        x.receiveShadow = true			
+    }
+});
     cena.add( gltf.scene ) 
     //cena = new THREE.Mesh(stoneBenchM); - mexer para a textura
     //clipe animação BenchExtend
@@ -74,26 +79,50 @@ function ( gltf )
     //clipe animação RightDoor
     clipeRightDoor = THREE.AnimationClip.findByName( gltf.animations, 'RightDoor' );
     acaoRightDoor = misturador.clipAction( clipeRightDoor ); 
+    //apenas repetir uma vez
+    acaoBenchExtend.setLoop(THREE.LoopOnce);
+    acaoLegExtend.setLoop(THREE.LoopOnce);
+    acaoLeftDoor.setLoop(THREE.LoopOnce);
+    acaoRightDoor.setLoop(THREE.LoopOnce);
 } );
     
 
 //pontos luz
 var luzPonto1 = new THREE.PointLight( "white" );
-luzPonto1.position.set( 5, 3, 5 ); //original 5,3,5
+luzPonto1.position.set( 20, 20, 10 ); //original 5,3,5
 cena.add( luzPonto1 );
+var luzPonto2 = new THREE.PointLight( "white" );
+luzPonto2.position.set( 20, 0, 10 ); //original 5,3,5
+cena.add( luzPonto2 );
+/* var luzPonto3 = new THREE.PointLight( "white" );
+luzPonto3.position.set( 10, 0, 15 ); //original 5,3,5
+cena.add( luzPonto3);
+var luzPonto4 = new THREE.PointLight( "white" );
+luzPonto4.position.set( 10, 0, 15 ); //original 5,3,5
+cena.add( luzPonto4); */
 
-const light = new THREE.AmbientLight( 0x404040 ); // soft white light
-cena.add( light );
+
+var luzAmbiente = new THREE.AmbientLight( "white", 5 );
+cena.add(luzAmbiente);
+
+var hemilight = new THREE.HemisphereLight(0xffeeb1, 0x080820, 1)
+cena.add(hemilight);
+var spotLight = new THREE.SpotLight(0xFFA95C, 4)
+spotLight.castShadow = true
+cena.add(spotLight);
+
 
 //ANIMAÇÕES DOS BOTÕES
 //PLAY
 function fazerplay(){
+    fazerstop();
     acaoBenchExtend.play();
     acaoLegExtend.play();
     acaoLeftDoor.play();
-    acaoRightDoor.play();
+    acaoRightDoor.play();  
 }
 ativar.addEventListener("click", fazerplay);
+
 
 //STOP
 function fazerstop(){
@@ -113,22 +142,22 @@ function fazerpausa(){
 }
 pausar.addEventListener("click", fazerpausa);
 
+//animar - sempre a última função
+animar();
+
 //RESET COM TIMESCALE
-function reverteranimacao(){
+/* function reverteranimacao(){
     acaoBenchExtend.timeScale = -1;
     acaoLegExtend.timeScale = -1;
     acaoLeftDoor.timeScale = -1;
     acaoRightDoor.timeScale = -1;
 }
-reverter.addEventListener("click", reverteranimacao);
+reverter.addEventListener("click", reverteranimacao); */
 
 // ciclo setLoop
-function loop(){
+/* function loop(){
     if(ciclo.value == '1'){
-        acaoBenchExtend.setLoop(THREE.LoopOnce);
-        acaoLegExtend.setLoop(THREE.LoopOnce);
-        acaoLeftDoor.setLoop(THREE.LoopOnce);
-        acaoRightDoor.setLoop(THREE.LoopOnce);
+        
     }
     if(ciclo.value == '2'){
         acaoLegExtend.setLoop(THREE.LoopRepeat);
@@ -140,10 +169,9 @@ function loop(){
         acaoRightDoor.setLoop(THREE.LoopPingPong);
     }
 }
-ciclo.addEventListener("click",loop);
+ciclo.addEventListener("click",loop); */
 
-//animar - sempre a última função
-animar();
+
 
 
 
