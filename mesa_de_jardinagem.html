@@ -184,7 +184,7 @@
             <!-- button list options - COLOR -->
             <div class="btn_option mb-4 d-flex justify-content-between" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightColor" aria-controls="offcanvasRightColor">
               <div class="btn_opt">
-                <p> Cores: </p>
+                <p> Cores: </p>                
                 <span id="option_selected_color">...</span>
               </div>              
               <i class='bx bx-right-arrow d-flex align-items-center'></i>
@@ -194,15 +194,15 @@
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightSize" aria-labelledby="offcanvasRightLabel">
               <div class="offcanvas-header">
                 <h5 id="offcanvasRightLabel">Dimensões</h5>
-                <button type="button" id="btn_select" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <button type="button" id="btn_select_size" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
               <div class="offcanvas-body">
 
-                  <label class="select_btn "> <p class="mb-0"> comp. 100 x prof. 50 x alt. 90 cm </p>
+                  <label id="100x50x90_label" class="select_btn "> <p class="ms-2 mb-0"> comp. 100 x prof. 50 x alt. 90 cm </p>
                     <input type="radio" name="size" value="100x50x90" onclick="selectOptions_size()" checked>
                   </label>
 
-                  <label class="select_btn"> <p class="mb-0"> comp. 150 x prof. 50 x alt. 100 cm </p>
+                  <label id="150x50x100_label" class="select_btn"> <p class="ms-2 mb-0"> comp. 150 x prof. 50 x alt. 100 cm </p>
                     <input type="radio" name="size" value="150x50x100" onclick="selectOptions_size()">
                   </label>
 
@@ -213,23 +213,25 @@
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightColor" aria-labelledby="offcanvasRightLabel">
               <div class="offcanvas-header">
                 <h5 id="offcanvasRightLabel">Cores</h5>
-                <button type="button" id="btn_select1" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <button type="button" id="btn_select_color" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
               <div class="offcanvas-body">
 
-                  <label class="select_btn"> <p class="mb-0"> Castanho </p>
-                    <input type="radio" name="color" value="Castanho" onclick="selectOptions_color()" checked>
+                  <label id="Castanho_label" class="select_btn"> 
+                    <img src="assets/img/movel_img-color.png" class="img-fluid rounded" alt="Imagem da cor do artigo">
+                    <p class="ms-2 mb-0"> Castanho </p>                    
+                    <input type="radio" name="color" value="Castanho"  onclick="selectOptions_color()" checked>
                   </label>
 
-                  <label class="select_btn"> <p class="mb-0"> Branco </p>
-                    <input type="radio" name="color" value="Branco" onclick="selectOptions_color()">
-                  </label>
-
-                  <label class="select_btn"> <p class="mb-0"> Beje </p>
+                  <label id="Beje_label" class="select_btn">
+                    <img src="assets/img/movel_img-color_beje.png" class="img-fluid rounded" alt="Imagem da cor do artigo">
+                    <p class="ms-2 mb-0"> Beje </p>
                     <input type="radio" name="color" value="Beje" onclick="selectOptions_color()">
                   </label>
 
-                  <label class="select_btn"> <p class="mb-0"> Preto </p>
+                  <label id="Preto_label" class="select_btn">
+                    <img src="assets/img/movel_img-color_preto.png" class="img-fluid rounded" alt="Imagem da cor do artigo">
+                    <p class="ms-2 mb-0"> Preto </p>
                     <input type="radio" name="color" value="Preto" onclick="selectOptions_color()">
                   </label>
 
