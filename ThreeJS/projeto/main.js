@@ -62,8 +62,9 @@ var carregador = new THREE.GLTFLoader();
 carregador.load( 'workBench_certo.gltf', 
 function ( gltf )
  { 
-    /* ======================== MARIANA POS AQUI ========================  */
+    /* ======================================= MARIANA POS AQUI =======================================  */
     globalObject = gltf; //store global reference to .obj --- uso na função nova_textura() -- não sei bem se necessário ainda
+    /* ================================================================================================ */
 
     gltf.scene.traverse(function(x) { 
     /* if (x instanceof THREE.Light) 
@@ -160,7 +161,7 @@ light.addEventListener("click", fazerlight);
 /* =================================================================== */
 /* ======================== MARIANA POS AQUI ========================  */
 /* =================================================================== */
-var btn_texture = document.getElementById("btn_texture"); // ler o botão
+var btn_texture = document.getElementById("btn_texture"); // Buscar botão
 
 btn_texture.onclick = function() { // só que depois é fazer isto consuante o que o user escolher, e para escolha chama-se a função nova_textura()
     
