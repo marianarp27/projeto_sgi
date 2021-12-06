@@ -4,6 +4,19 @@ window.onload = function(){
     selectOptions_color();
 }
 
+// ---- quantidade (+/-) -----
+var count = 1;
+function plus(){
+    count++;
+    document.getElementById("btn_count").innerHTML = count;
+}
+function minus(){
+  if (count > 1) {
+    count--;
+    document.getElementById("btn_count").innerHTML = count;
+  }  
+}
+
 
 // selecao do tamanho
 function selectOptions_size() {
@@ -27,17 +40,6 @@ function selectOptions_size() {
             /* console.log(option_val); */
         }
     }
-
-
-
-
-    // acede e escreve o valor selecionado pelo user
-    /* var selected = document.querySelector('input[name="size"]:checked').value;
-    document.getElementById("option_selected_size").innerHTML = selected; */
-
-    // saber o value para por class '.btn_selected'
-    /* var teste = document.querySelector('input[name="size"]:checked').value;
-    console.log(teste); */
  
 }
 

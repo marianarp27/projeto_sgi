@@ -5,11 +5,43 @@
   --soft-white: #f0f0f0;
   --desconto: #D07C5C;
   --review: #AB7E7E;
+
+  --gray: #575757;
 }
 
 /* ------------------------------------------------------ */
 /* ------ mudar propriedade/cor botão do bootstrap ------ */
 /* ------------------------------------------------------ */
+
+/* -------------  BUTTON GREEN  ------------- */
+.btn_green {
+  background-color: var(--green);
+  border-color: var(--green);
+  color: var(--white);
+}
+.btn_green:hover {
+  color: var(--white);
+  background-color: var(--dark-green);
+  border-color: var(--dark-green);  
+}
+.btn_green:focus {
+  color: var(--white);
+  background-color: var(--dark-green);
+  border-color: var(--dark-green);
+  box-shadow: 0 0 0 .25rem rgba(114, 165, 129, 0.5);
+  
+}
+
+.btn_outline_green {
+  border-color: var(--green);
+  color: var(--green);
+}
+.btn_outline_green:hover {
+  color: var(--white);
+  background-color: var(--dark-green);
+  border-color: var(--dark-green);  
+}
+
 
 .btn-outline-success {
   color: var(--dark-green);
@@ -33,7 +65,7 @@
 /* --------------------------------------------------------- */
 .myCanvas {
   background-color: khaki;
-  height: 30rem;
+  height: 415px;
 }
 
 .artigo_info .descricao,
@@ -54,6 +86,64 @@
 /* ---------------- ARTIGO INFO - Lateral ------------------ */
 /* --------------------------------------------------------- */
 
+.bx-heart {
+  color: var(--green);
+  cursor: pointer;
+}
+
+.btn_quantity_product {
+  border-color: var(--green);
+  color: var(--green);
+}
+.btn_quantity_product:hover {
+  color: var(--green);  
+}
+.btn_quantity_product i:hover {
+  color: var(--dark-green);  
+}
+
+
+
+/* ------ Btn Select Size + Color ----- */
+.btn_option{
+  border-top: 1px solid rgb(211, 211, 211);
+  padding-top: 1rem;
+}
+
+.btn_option:hover p{
+  text-decoration: underline;
+}
+
+.btn_opt p{
+  font-weight: bolder;
+  margin-bottom: .1rem;
+}
+.btn_opt .option_selected{
+  font-size: smaller;
+  color: gray;
+}
+
+
+/* ----- Trocas Devolucoes --- Envio ------ */
+.section_envio .envio {
+  border-bottom: 1px solid rgb(211, 211, 211);
+  color: var(--gray);
+}
+
+.section_envio .envio p, .btn_gray {
+  font-size: smaller;
+}
+
+.btn_gray {
+  border-color: var(--gray);
+  color: var(--gray);
+}
+
+.btn_gray:hover {
+  border-color: var(--gray);
+  background-color: var(--gray);
+  color: white;
+}
 
 
 
@@ -96,28 +186,22 @@ label > input[type="radio"] {
 }
 
 
+.offcanvas-body .text-muted {
+  cursor: default !important;
+  text-decoration: line-through;
+  color: rgb(128, 128, 128);
+}
+.offcanvas-body .text-muted:hover {
+  text-decoration: line-through;
+  border: 1px solid rgb(211, 211, 211);
+}
+
 
 .offcanvas-body {
   margin: 0 1.5rem;
 }
 
-.btn_option{
-  border-top: 1px solid rgb(211, 211, 211);
-  padding-top: 1rem;
-}
 
-.btn_option:hover p{
-  text-decoration: underline;
-}
-
-.btn_opt p{
-  font-weight: bolder;
-  margin-bottom: .1rem;
-}
-.btn_opt .option_selected{
-  font-size: smaller;
-  color: gray;
-}
 
 
 
@@ -136,13 +220,24 @@ label > input[type="radio"] {
   margin-bottom: 4rem;
 }
 
+/* --------------------------------------------------------- */
+/* --------------------- DESCRICAO  ------------------------ */
+/* --------------------------------------------------------- */
 
 
-
-
-
-
-
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: var(--green);
+  background-color: transparent;
+}
+.nav-pills .nav-link {
+  border-radius: 0;
+}
+.nav-link {
+  color: var(--gray);
+}
+.nav-link:hover {
+  color: black;
+}
 
 
 
@@ -154,19 +249,9 @@ label > input[type="radio"] {
 
 
 /* ---------------  ver mais  --------------- */
-.ver_mais {
+.ver_mais_descrition {
   border-top: solid 1px #adadad;
   padding-top: 1rem;
-  margin-top: 2rem;
   margin-bottom: 35rem;
 }
-.ver_mais p {
-  color: gray;
-}
-.ver_mais .btn {
-  padding-top: .5rem;
-  width: 10rem;
-}
-.ver_mais p {
-  width: calc(50% - 5rem);
-}
+
