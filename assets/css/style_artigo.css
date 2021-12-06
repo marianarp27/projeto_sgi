@@ -86,7 +86,7 @@
 /* ---------------- ARTIGO INFO - Lateral ------------------ */
 /* --------------------------------------------------------- */
 
-.bx-heart {
+.line_btn .bx-heart {
   color: var(--green);
   cursor: pointer;
 }

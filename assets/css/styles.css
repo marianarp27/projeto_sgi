@@ -176,7 +176,7 @@ body {
   background-color: var(--desconto);
   color: var(--white);
   position: absolute;
-  width: 70px;
+  min-width: 70px;
   top: 10px;
   left: calc(100% - 80px);
   margin: auto;
