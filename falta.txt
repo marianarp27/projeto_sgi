@@ -1,0 +1,7 @@
+PÁGINA PRINCIPAL
+-foto de capa dos móveis
+- mudar fotos dos items que não serão selecionados
+
+PÁGINA DO MÓVEL
+- botões e animação
+- descrição
