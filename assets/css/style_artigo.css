@@ -63,9 +63,10 @@
 /* --------------------------------------------------------- */
 /* ---------------- ARTIGO INFO - objeto ------------------ */
 /* --------------------------------------------------------- */
-.myCanvas {
+.myCanvas .test_canvas {
   background-color: khaki;
   height: 450px;
+  width: 550px;
 }
 
 .artigo_info .descricao,
