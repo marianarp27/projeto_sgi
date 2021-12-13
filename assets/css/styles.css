@@ -107,8 +107,15 @@ body {
 /* ----------------------------------------------------------------- */
 /* ------------------- BANNER - IMG + breadcrumb ------------------- */
 /* ----------------------------------------------------------------- */
-.card_banner .card {
-  background: url(../img/moveis_img.jpg);
+.card_banner .card .moveis{ /* IMG dos moveis */
+  background: url(../img/table.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: none;
+}
+.card_banner .card .mesas_jardim{ /* IMG das mesas de jardim */
+  background: url(../img/moveis_img2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
