@@ -1,6 +1,6 @@
 PÁGINA PRINCIPAL
 -foto de capa dos móveis
-- mudar fotos dos items que não serão selecionados
+- mudar fotos dos items que não serão selecionados (CHECK)
 
 PÁGINA DO MÓVEL
 - botões e animação
