@@ -30,18 +30,12 @@ var pausar = document.getElementById('btn_pause');
 var parar = document.getElementById('btn_stop');
 var light = document.getElementById('btn_light');
 var colorWhite = document.getElementById('btn_white');
+var btn_texture_white = document.getElementById("btn_texture_white");
+var btn_texture_faia = document.getElementById("btn_texture_faia");
+var btn_texture_black = document.getElementById("btn_texture_black");
 
 //camera
 
-/* var camara = new THREE.PerspectiveCamera( 70, 800 / 600, 0.1, 500 );
-camara.position.x = -7;   // 6
-camara.position.y = 7;    // 4
-camara.position.z = 12;   // 7 */
-/* ================================= MARIANA ALTEROU AQUI -- para Testar a vista  =================================  */
-// ----- esta parte de baixo 'camara.position.set()' é igual às da posição x, y e z 
-//camara.position.set( 0, 6, 15 );  // tentar ter a vista da frente (não sei se é assim para ver as vistas)
-/* ================================================================================================================== */
-//=======
 var camara = new THREE.PerspectiveCamera( 80, 800 / 600, 0.1, 300 );
 camara.position.x = -5;
 camara.position.y = 8;
@@ -65,22 +59,15 @@ function animar() {
     renderer.render( cena, camara ); 
 } 
 
-/* ==================================================================================== */
-/* ================================= MARIANA POS AQUI =================================  */
 var globalObject; // variavel global 
-/* ==================================================================================== */
 
 //loader de Gltf + luz
 var carregador = new THREE.GLTFLoader();
 carregador.load( 'workBench_certo.gltf', 
 function ( gltf )
  { 
-    /* ======================================= MARIANA POS AQUI =======================================  */
-    globalObject = gltf; //store global reference to .obj --- uso na função nova_textura() -- não sei bem se necessário ainda
-    /* ================================================================================================ */
-
+    globalObject = gltf; //store global reference to .obj --- uso na função nova_textura() 
     gltf.scene.traverse(function(x) { 
-    /* if (x instanceof THREE.Light) x.visible = false }); */
     if (x.isMesh) {
         x.castShadow = true
         x.receiveShadow = true		
@@ -108,7 +95,7 @@ function ( gltf )
 } );
     
 
-//pontos luz
+//pontos luz 
 var luzPonto1 = new THREE.PointLight( "white", 4, 0, 2);
 luzPonto1.position.set( 10, 5, 10 ); //original 5,3,5, 202010
 cena.add( luzPonto1 );
@@ -157,7 +144,7 @@ function fazerpausa(){
 pausar.addEventListener("click", fazerpausa);
 
 //LIGHT
-function fazerlight(){
+function addlight(){
     var luzPonto1 = new THREE.PointLight( "white", 4,0, 2);
     luzPonto1.position.set( 10, 5, 10 ); //original 5,3,5, 202010
     cena.add( luzPonto1 );
@@ -165,72 +152,58 @@ function fazerlight(){
     luzPonto2.position.set( -10, -5, -10 ); //original 5,3,5, 20,0,10
     cena.add( luzPonto2 );
 }
-light.addEventListener("click", fazerlight);
-
-
-
-/* =================================================================== */
-/* ======================== MARIANA POS AQUI ========================  */
-/* =================================================================== */
-var btn_texture = document.getElementById("btn_texture"); // Buscar botão
-
-btn_texture.onclick = function() { // só que depois é fazer isto consuante o que o user escolher, e para escolha chama-se a função nova_textura()
-    
-	var texture3 = new THREE.TextureLoader().load( "materials/Marble018_1K_Color.jpg" ); // vai buscar a textura
-	var material3 = new THREE.MeshBasicMaterial( {  color: 0xffffff, map: texture3} ); // cria uma MESH com a textura escolhida(load)
-
-    // depois uma função que irá consuante a escolha do user 'carregar' a textura e depois chamar a função que tem lá dentro o 'globalObject.scene.traverse.....'
-    nova_textura(material3);    
-}
+light.addEventListener("click", addlight);
 
 function nova_textura(textura) {
-    // para dar para fazer refesh (suponho) --- assim deu, não sei se é a melhor coisa
     globalObject.scene.traverse( function ( x ) {        
         if (x.isMesh) {
             x.castShadow = true
-            x.receiveShadow = true		
-        
-            x.material = textura;
+            x.receiveShadow = true	
+            //x.material.needsUpdate = true	
+            x.material.map = textura; //x.material.texture2,map
+            cena.getObjectByName('stoneBench').material.map = new THREE.TextureLoader().load( "materials/Marble018_1K_Color.jpg" );
         }
     });
 }
 
-/* =================================================================== */
-/* =================================================================== */
-/* =================================================================== */
+//para o botão textura_white
+btn_texture_white.onclick = function() { 
+    
+	var texture3 = new THREE.TextureLoader().load( "materials/Marble018_1K_Color.jpg" ); // vai buscar a textura
+	//var material3 = new THREE.MeshBasicMaterial( {  color: 0xffffff, map: texture3} ); // cria uma MESH com a textura escolhida(load)
 
 
+    //cena.remove(luzPonto2);
+   // cena.remove(luzPonto1);
+    // uma função que irá carregar a textura
+    nova_textura(texture3);  
+
+    
+}
+
+//para o botão textura_faia
+btn_texture_faia.onclick = function() { 
+    
+	var texture2 = new THREE.TextureLoader().load( "materials/faiaWood.jpg" ); // vai buscar a textura
+	//var material2 = new THREE.MeshBasicMaterial( {  color: 0xffffff, map: texture2} ); // cria uma MESH com a textura escolhida(load)
+
+    // uma função que irá carregar a textura
+    nova_textura(texture2);    
+}
+
+
+//para o botão textura_black
+btn_texture_black.onclick = function() { 
+    
+	var texture4 = new THREE.TextureLoader().load( "materials/blackwood.jpg" ); // vai buscar a textura
+	//var material4 = new THREE.MeshBasicMaterial( {  color: 0xffffff, map: texture4} ); // cria uma MESH com a textura escolhida(load)
+
+    // uma função que irá carregar a textura
+    nova_textura(texture4);    
+}
 
 //animar - sempre a última função
 animar();
-
-//RESET COM TIMESCALE
-/* function reverteranimacao(){
-    acaoBenchExtend.timeScale = -1;
-    acaoLegExtend.timeScale = -1;
-    acaoLeftDoor.timeScale = -1;
-    acaoRightDoor.timeScale = -1;
-}
-reverter.addEventListener("click", reverteranimacao); */
-
-// ciclo setLoop
-/* function loop(){
-    if(ciclo.value == '1'){
-        
-    }
-    if(ciclo.value == '2'){
-        acaoLegExtend.setLoop(THREE.LoopRepeat);
-    }
-    if(ciclo.value == '3'){
-        acaoBenchExtend.setLoop(THREE.LoopPingPong);
-        acaoLegExtend.setLoop(THREE.LoopPingPong);
-        acaoLeftDoor.setLoop(THREE.LoopPingPong);
-        acaoRightDoor.setLoop(THREE.LoopPingPong);
-    }
-}
-ciclo.addEventListener("click",loop); */
-
-
 
 
 
