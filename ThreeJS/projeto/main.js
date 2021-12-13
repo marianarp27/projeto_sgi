@@ -17,29 +17,42 @@ var acaoLegExtend;
 var acaoLeftDoor;
 var acaoRightDoor;
 
+//Objetos
+var banco = document.getElementsByName('benchExtend');
+var perna = document.getElementsByName('legExtend1');
+var porta1 = document.getElementsByName('door');
+var porta2 = document.getElementsByName('door1');
+var suporte = document.getElementsByName('workBench');
 
 //VARIÁVEIS PARA BOTÕES HTML
 var ativar = document.getElementById('btn_play');
 var pausar = document.getElementById('btn_pause');
 var parar = document.getElementById('btn_stop');
 var light = document.getElementById('btn_light');
+var colorWhite = document.getElementById('btn_white');
 
 //camera
-var camara = new THREE.PerspectiveCamera( 70, 800 / 600, 0.1, 500 );
+
+/* var camara = new THREE.PerspectiveCamera( 70, 800 / 600, 0.1, 500 );
 camara.position.x = -7;   // 6
 camara.position.y = 7;    // 4
-camara.position.z = 12;   // 7
+camara.position.z = 12;   // 7 */
 /* ================================= MARIANA ALTEROU AQUI -- para Testar a vista  =================================  */
 // ----- esta parte de baixo 'camara.position.set()' é igual às da posição x, y e z 
 //camara.position.set( 0, 6, 15 );  // tentar ter a vista da frente (não sei se é assim para ver as vistas)
 /* ================================================================================================================== */
+//=======
+var camara = new THREE.PerspectiveCamera( 80, 800 / 600, 0.1, 300 );
+camara.position.x = -5;
+camara.position.y = 8;
+camara.position.z = 13;
 camara.lookAt( 0, 0, 0 );
 
 
 //renderer
 var renderer = new THREE.WebGLRenderer({ canvas: meuCanvas }); //canvas
 renderer.shadowMap.enabled = true;
-renderer.setSize( 800, 600 );
+renderer.setSize( 548, 415 );
 renderer.render( cena, camara );
 
 //orbitcontrols
@@ -67,16 +80,14 @@ function ( gltf )
     /* ================================================================================================ */
 
     gltf.scene.traverse(function(x) { 
-    /* if (x instanceof THREE.Light) 
-    x.visible = false }); */
+    /* if (x instanceof THREE.Light) x.visible = false }); */
     if (x.isMesh) {
         x.castShadow = true
         x.receiveShadow = true		
     }
-
-   
-});
     cena.add( gltf.scene ) 
+});
+    
     //clipe animação BenchExtend
     clipeBenchExtend = THREE.AnimationClip.findByName( gltf.animations, 'BenchExtend' );
     acaoBenchExtend = misturador.clipAction( clipeBenchExtend ); 
@@ -121,7 +132,7 @@ function fazerplay(){
     fazerstop();
     acaoBenchExtend.play();
     acaoLegExtend.play();
-    acaoLeftDoor.play();
+    acaoLeftDoor.play()
     acaoRightDoor.play();  
 }
 ativar.addEventListener("click", fazerplay);
