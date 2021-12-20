@@ -2,7 +2,22 @@
 window.onload = function(){
     selectOptions_size();
     selectOptions_color();
+
+    // Animação de remover o overlay
+    setTimeout(function(){
+        document.getElementById("overlay_canvas").classList.add("overlay_canvas_fade");        
+    }, 4000); // 4 segundos depois do load da pagina
+    setTimeout(function(){
+        document.getElementById("overlay_canvas").classList.add("d-none");  // d-none remove o display flex      
+    }, 5000); // + 1 segundo da duração da animaçao opacity
+
+    
 }
+
+
+
+
+
 
 // ---- quantidade (+/-) -----
 var count = 1;
@@ -16,6 +31,8 @@ function minus(){
     document.getElementById("btn_count").innerHTML = count;
   }  
 }
+
+
 
 
 // selecao do tamanho

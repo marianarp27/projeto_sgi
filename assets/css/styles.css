@@ -88,6 +88,10 @@ body {
   padding-top: .5rem;
 }
 
+.info_artigos .accordion-button {
+  padding: 1rem 0 0 0;
+}
+
 /* ---- color btn bootstrap ---- */
 .btn-outline-success {
   color: var(--dark-green);
@@ -108,17 +112,20 @@ body {
 /* ------------------- BANNER - IMG + breadcrumb ------------------- */
 /* ----------------------------------------------------------------- */
 .card_banner .card .moveis{ /* IMG dos moveis */
-  background: url(../img/table.jpg);
+  background: url(../img/moveis_img1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   border: none;
 }
 .card_banner .card .mesas_jardim{ /* IMG das mesas de jardim */
-  background: url(../img/outdoor.jpg);
+  background: url(../img/moveis_jardim.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  border: none;
+}
+.card_banner .card {
   border: none;
 }
 .card_banner .card-body {
@@ -204,7 +211,7 @@ body {
   z-index:100;
   height: calc(100% + 20px);  
   transform: scale(1.07, 1.07);
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 8px;
 }
 
 .card_item .card .button_and_icon {
