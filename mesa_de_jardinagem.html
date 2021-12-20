@@ -65,7 +65,7 @@
                 <a class="nav-link active" href="#" id="navbarDropdown"  data-bs-toggle="dropdown" aria-expanded="false">
                   Casa
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   
                   <div class="information-grid">
                     <div class="dropdown-colum">
@@ -104,7 +104,7 @@
                     </div>
                   </div>                  
               
-                </ul>
+                </div>
               </li>
               
               <li class="nav-item"><a class="nav-link" href="#"> Eletrodomésticos </a></li>
@@ -130,7 +130,7 @@
       
       <div class="container">
         
-        <!-- --------- BANNER --------- -->
+        <!-- ======= BANNER ======= -->
         <div class="card_banner">
           <div class="card text-center">
             <div class="card-body rounded-3 mesas_jardim">
@@ -139,7 +139,7 @@
           </div>
         </div>
 
-        <!-- --------- breadcrumb --------- -->
+        <!-- ======= breadcrumb ======= -->
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">La Redoute</a></li>
@@ -154,7 +154,7 @@
 
         <div class="row">
 
-          <!-- -----==============------  MyCanvas - ThreeJS -----==============------ -->
+          <!-- ==============  MyCanvas - ThreeJS ============== -->
           <div class="col ms-2 px-0 ThreeJS_Canvas">
             <div id="overlay_canvas" class=" rounded-3 d-flex justify-content-center align-items-center">
               <div class="circle d-flex align-items-center">
@@ -182,7 +182,7 @@
             </div>
 
           </div> 
-          <!-- -----==============------  MyCanvas - ThreeJS -----==============------ -->
+          <!-- ============== MyCanvas - ThreeJS ============== -->
 
           <div class="col artigo_info ms-4">
             <h5 class="mb-3">Mesa de jardinagem, em acácia, Wassif</h5>
@@ -201,7 +201,7 @@
             <h3 class="mb-5">299.00€</h3>
 
             <!-- button list options - SIZE -->
-            <div class="btn_option mb-4 d-flex justify-content-between" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightSize" aria-controls="offcanvasRightSize">
+            <div class="btn_option mb-4 d-flex justify-content-between"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightSize" aria-controls="offcanvasRightSize">
               <div class="btn_opt">
                 <p> Dimensão: </p>
                 <span id="option_selected_size">...</span>
@@ -210,7 +210,7 @@
             </div>
 
             <!-- button list options - COLOR -->
-            <div class="btn_option mb-4 d-flex justify-content-between" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightColor" aria-controls="offcanvasRightColor">
+            <div class="btn_option mb-4 d-flex justify-content-between" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightColor" aria-controls="offcanvasRightColor">
               <div class="btn_opt">
                 <p> Cores: </p>                
                 <span id="option_selected_color">...</span>
@@ -219,18 +219,18 @@
             </div>
 
             <!-- overlay com opcoes - SIZE -->
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightSize" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightSize" aria-labelledby="offcanvasRightLabel_size">
               <div class="offcanvas-header">
-                <h5 id="offcanvasRightLabel">Dimensões</h5>
+                <h5 id="offcanvasRightLabel_size">Dimensões</h5>
                 <button type="button" id="btn_select_size" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
               <div class="offcanvas-body">
 
-                  <label id="100x50x90_label" class="select_btn "> <p class="ms-2 mb-0"> comp. 100 x prof. 50 x alt. 90 cm </p>
+                  <label id="100x50x90_label" class="select_btn "> <span class="ms-2 mb-0"> comp. 100 x prof. 50 x alt. 90 cm </span>
                     <input type="radio" name="size" value="100x50x90" onclick="selectOptions_size()" checked>
                   </label>
 
-                  <label id="150x50x100_label" class="select_btn text-muted"> <p class="ms-2 mb-0"> comp. 150 x prof. 50 x alt. 100 cm </p>
+                  <label id="150x50x100_label" class="select_btn text-muted"> <span class="ms-2 mb-0"> comp. 150 x prof. 50 x alt. 100 cm </span>
                     <input type="radio" name="size" value="150x50x100" >
                   </label>
 
@@ -238,28 +238,28 @@
             </div>
 
             <!-- overlay com opcoes - COLOR -->
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightColor" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightColor" aria-labelledby="offcanvasRightLabel_color">
               <div class="offcanvas-header">
-                <h5 id="offcanvasRightLabel">Cores</h5>
+                <h5 id="offcanvasRightLabel_color">Cores</h5>
                 <button type="button" id="btn_select_color" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
               <div class="offcanvas-body">
 
                   <label id="Castanho_label" class="select_btn"> 
                     <img src="assets/img/movel_img-color.png" class="img-fluid rounded" alt="Imagem da cor do artigo">
-                    <p class="ms-2 mb-0"> Castanho </p>                    
-                    <input type="radio" name="color" value="Castanho"  onclick="selectOptions_color()" checked>
+                    <span class="ms-2 mb-0"> Castanho </span>                    
+                    <input type="radio" name="color" value="Castanho" onclick="selectOptions_color()" checked>
                   </label>
 
                   <label id="Beje_label" class="select_btn">
                     <img src="assets/img/movel_img-color_beje.png" class="img-fluid rounded" alt="Imagem da cor do artigo">
-                    <p class="ms-2 mb-0"> Beje </p>
+                    <span class="ms-2 mb-0"> Beje </span>
                     <input type="radio" name="color" value="Beje" onclick="selectOptions_color()">
                   </label>
 
                   <label id="Preto_label" class="select_btn">
                     <img src="assets/img/movel_img-color_preto.png" class="img-fluid rounded" alt="Imagem da cor do artigo">
-                    <p class="ms-2 mb-0"> Preto </p>
+                    <span class="ms-2 mb-0"> Preto </span>
                     <input type="radio" name="color" value="Preto" onclick="selectOptions_color()">
                   </label>
 
@@ -302,10 +302,10 @@
 
         <ul class="nav nav-pills mt-5 mb-3" id="pills-tab" role="tablist">
           <li class="nav-item me-4" role="presentation">
-            <div class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Descrição</div>
+            <div class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Descrição</div>
           </li>
           <li class="nav-item" role="presentation">
-            <div class="nav-link"  type="button" aria-selected="false">Avaliação dos clientes</div>
+            <div class="nav-link" role="tab"  aria-selected="false">Avaliação dos clientes </div>
           </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
@@ -369,7 +369,7 @@
           <!-- ===================== ENF OF NEWSLETTER =====================-->
         
           <div class="row sections">
-            <!-- ---- 1 coluna ---- -->
+            <!-- ======= 1 coluna ======= -->
             <div class="col">
               <h6>La Redoute</h6>
               <a class="link_footer">Quem somos</a>
@@ -377,7 +377,7 @@
               <a class="link_footer">Condições gerais de venda</a>
               <a class="link_footer">Recrutamento La Redoute</a>
             </div>
-            <!-- ---- 2 coluna ---- -->
+            <!-- ======= 2 coluna ======= -->
             <div class="col">
               <h6>Serviços LaRedoute</h6>
               <a class="link_footer">Ajuda</a>
@@ -386,14 +386,14 @@
               <a class="link_footer">Desinscrição de Newsletter</a>
               <a class="link_footer">Todos os serviços</a>
             </div>
-            <!-- ---- 3 coluna ---- -->
+            <!-- ======= 3 coluna ======= -->
             <div class="col">
               <h6>Marcas exclusivas</h6>
               <a class="link_footer">La Redoute Collections</a>
               <a class="link_footer">La Redoute Intérieurs</a>
               <a class="link_footer">AM.PM.</a>
             </div>
-            <!-- ---- 4 coluna ---- -->
+            <!-- ======= 4 coluna ======= -->
             <div class="col">
               <h6>Universo La Reoute</h6>
               <a class="link_footer"> Aplicação mobile La Redoute</a>
@@ -401,7 +401,7 @@
               <a class="link_footer">Vídeos La Redoute</a>
               <a class="link_footer">Espaço B2B</a>
             </div>
-            <!-- ---- 5 coluna ---- -->
+            <!-- ======= 5 coluna ======= -->
             <div class="col links_pagamentos">
               <h6>Pagamento 100% seguro</h6>
               <div class="box_container">
@@ -415,7 +415,7 @@
 
             </div>
           </div>
-          <!-- ---- redes sociais ---- -->
+          <!-- ======= redes sociais ======= -->
           <div class="social-media">
             <a href="#"> <i class='bx bxl-instagram-alt' ></i> </a>
             <a href="#"> <i class='bx bxl-facebook-square' ></i> </a>
@@ -424,7 +424,7 @@
           </div>
 
           <hr>
-          <!-- ---- copy-right + links ---- -->
+          <!-- ======= copy-right + links ======= -->
           <div class="row botom-parte">
             <div class="col"> <span> 1837 - 2021 @ La Redoute - Vendas à distancia S.A. </span> </div>
             <div class="col text-end mb-3">
