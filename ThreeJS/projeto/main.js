@@ -30,9 +30,12 @@ var pausar = document.getElementById('btn_pause');
 var parar = document.getElementById('btn_stop');
 //var light = document.getElementById('btn_light');
 var colorWhite = document.getElementById('btn_white');
-var btn_texture_white = document.getElementById("btn_texture_white");
-var btn_texture_faia = document.getElementById("btn_texture_faia");
-var btn_texture_black = document.getElementById("btn_texture_black");
+//var btn_texture_white = document.getElementById("btn_texture_white");
+//var btn_texture_faia = document.getElementById("btn_texture_faia");
+//var btn_texture_black = document.getElementById("btn_texture_black");
+var btn_texture_brown = document.getElementById('Castanho_label');
+var btn_texture_faia = document.getElementById('Beje_label');
+var btn_texture_black = document.getElementById('Preto_label');
 
 //camera
 
@@ -154,7 +157,8 @@ function addlight(){
 }
 light.addEventListener("click", addlight);
 */
-/*
+
+// função que muda a textura do objeto
 function nova_textura(textura) {
     globalObject.scene.traverse( function ( x ) {        
         if (x.isMesh) {
@@ -167,6 +171,35 @@ function nova_textura(textura) {
     });
 }
 
+
+
+btn_texture_brown.onclick = function() { 
+    
+	var texture_opt = new THREE.TextureLoader().load( "materials/Wood051_1K_Color.png" ); // vai buscar a textura
+    // uma função que irá carregar a textura
+    nova_textura(texture_opt);   
+}
+
+btn_texture_faia.onclick = function() { 
+    
+	var texture_opt = new THREE.TextureLoader().load( "materials/faiaWood.jpg" ); // vai buscar a textura
+    // uma função que irá carregar a textura
+    nova_textura(texture_opt);
+}
+
+btn_texture_black.onclick = function() { 
+    
+	var texture_opt = new THREE.TextureLoader().load( "materials/blackwood.jpg" ); // vai buscar a textura
+    // uma função que irá carregar a textura
+    nova_textura(texture_opt);   
+}
+
+    
+
+    
+
+
+/*
 //para o botão textura_white
 btn_texture_white.onclick = function() { 
     

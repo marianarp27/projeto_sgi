@@ -87,9 +87,11 @@ function selectOptions_color() {
 
 
 
-    // acede e escreve o valor selecionado pelo user
-    /* var selected_color = document.querySelector('input[name="color"]:checked').value;
-    document.getElementById("option_selected_color").innerHTML = selected_color; */
+  
+
+
+
+    /*document.getElementById("option_selected_color").innerHTML = selected_color; */
 
     // saber o value para por class '.btn_selected'
     /* var teste = document.querySelector('input[name="color"]:checked').value;
