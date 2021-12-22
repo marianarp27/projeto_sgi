@@ -91,9 +91,6 @@ function selectOptions_color() {
     /* var selected_color = document.querySelector('input[name="color"]:checked').value;
     document.getElementById("option_selected_color").innerHTML = selected_color; */
 
-    //Modificar a IMG dependendo da cor selecionada
-    /* document.getElementById("myImage").src = 'img/new-image.jpg'; */
-
     // saber o value para por class '.btn_selected'
     /* var teste = document.querySelector('input[name="color"]:checked').value;
     console.log(teste); */

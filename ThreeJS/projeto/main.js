@@ -28,7 +28,7 @@ var suporte = document.getElementsByName('workBench');
 var ativar = document.getElementById('btn_play');
 var pausar = document.getElementById('btn_pause');
 var parar = document.getElementById('btn_stop');
-var light = document.getElementById('btn_light');
+//var light = document.getElementById('btn_light');
 var colorWhite = document.getElementById('btn_white');
 var btn_texture_white = document.getElementById("btn_texture_white");
 var btn_texture_faia = document.getElementById("btn_texture_faia");
@@ -142,7 +142,7 @@ function fazerpausa(){
     acaoRightDoor.paused = true;
 }
 pausar.addEventListener("click", fazerpausa);
-
+/*
 //LIGHT
 function addlight(){
     var luzPonto1 = new THREE.PointLight( "white", 4,0, 2);
@@ -153,7 +153,8 @@ function addlight(){
     cena.add( luzPonto2 );
 }
 light.addEventListener("click", addlight);
-
+*/
+/*
 function nova_textura(textura) {
     globalObject.scene.traverse( function ( x ) {        
         if (x.isMesh) {
@@ -201,7 +202,7 @@ btn_texture_black.onclick = function() {
     // uma função que irá carregar a textura
     nova_textura(texture4);    
 }
-
+*/
 //animar - sempre a última função
 animar();
 

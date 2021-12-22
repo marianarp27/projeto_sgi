@@ -90,8 +90,8 @@
 #overlay_canvas {
   background-color: #72a5817c;
   z-index: 10;
-  height: 450px;
-  width: 550px;
+  height: 415px;
+  width: 549px;
   position: absolute;
   transition: all 1s ease;
 }
@@ -133,6 +133,7 @@
 .btn_option{
   border-top: 1px solid rgb(211, 211, 211);
   padding-top: 1rem;
+  cursor: pointer;
 }
 
 .btn_option:hover p{
