@@ -3,8 +3,9 @@ PÁGINA PRINCIPAL
 - (CHECK) mudar fotos dos items que não serão selecionados 
 
 PÁGINA DO MÓVEL
-- botões e animação
-- descrição (CHECK)
+- animação(texturas)
+- (CHECK) descrição 
 
 
-- ver nome para botões do artigo
+- terminar relatório - justificações
+- mudar o nome do gltf: os dois, pasta main e pasta threejs
