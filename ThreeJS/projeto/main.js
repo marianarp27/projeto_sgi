@@ -30,9 +30,6 @@ var pausar = document.getElementById('btn_pause');
 var parar = document.getElementById('btn_stop');
 //var light = document.getElementById('btn_light');
 var colorWhite = document.getElementById('btn_white');
-//var btn_texture_white = document.getElementById("btn_texture_white");
-//var btn_texture_faia = document.getElementById("btn_texture_faia");
-//var btn_texture_black = document.getElementById("btn_texture_black");
 var btn_texture_brown = document.getElementById('Castanho_label');
 var btn_texture_faia = document.getElementById('Beje_label');
 var btn_texture_black = document.getElementById('Preto_label');
@@ -145,9 +142,9 @@ function fazerpausa(){
     acaoRightDoor.paused = true;
 }
 pausar.addEventListener("click", fazerpausa);
-/*
+
 //LIGHT
-function addlight(){
+/* function addlight(){
     var luzPonto1 = new THREE.PointLight( "white", 4,0, 2);
     luzPonto1.position.set( 10, 5, 10 ); //original 5,3,5, 202010
     cena.add( luzPonto1 );
@@ -155,8 +152,8 @@ function addlight(){
     luzPonto2.position.set( -10, -5, -10 ); //original 5,3,5, 20,0,10
     cena.add( luzPonto2 );
 }
-light.addEventListener("click", addlight);
-*/
+light.addEventListener("click", addlight); */
+
 
 // função que muda a textura do objeto
 function nova_textura(textura) {
@@ -171,8 +168,6 @@ function nova_textura(textura) {
     });
 }
 
-
-
 btn_texture_brown.onclick = function() { 
     
 	var texture_opt = new THREE.TextureLoader().load( "materials/Wood051_1K_Color.png" ); // vai buscar a textura
@@ -182,7 +177,7 @@ btn_texture_brown.onclick = function() {
 
 btn_texture_faia.onclick = function() { 
     
-	var texture_opt = new THREE.TextureLoader().load( "materials/faiaWood.jpg" ); // vai buscar a textura
+	var texture_opt = new THREE.TextureLoader().load( "materials/branco.jpg" ); // vai buscar a textura
     // uma função que irá carregar a textura
     nova_textura(texture_opt);
 }
@@ -193,49 +188,6 @@ btn_texture_black.onclick = function() {
     // uma função que irá carregar a textura
     nova_textura(texture_opt);   
 }
-
-    
-
-    
-
-
-/*
-//para o botão textura_white
-btn_texture_white.onclick = function() { 
-    
-	var texture3 = new THREE.TextureLoader().load( "materials/Marble018_1K_Color.jpg" ); // vai buscar a textura
-	//var material3 = new THREE.MeshBasicMaterial( {  color: 0xffffff, map: texture3} ); // cria uma MESH com a textura escolhida(load)
-
-
-    //cena.remove(luzPonto2);
-   // cena.remove(luzPonto1);
-    // uma função que irá carregar a textura
-    nova_textura(texture3);  
-
-    
-}
-
-//para o botão textura_faia
-btn_texture_faia.onclick = function() { 
-    
-	var texture2 = new THREE.TextureLoader().load( "materials/faiaWood.jpg" ); // vai buscar a textura
-	//var material2 = new THREE.MeshBasicMaterial( {  color: 0xffffff, map: texture2} ); // cria uma MESH com a textura escolhida(load)
-
-    // uma função que irá carregar a textura
-    nova_textura(texture2);    
-}
-
-
-//para o botão textura_black
-btn_texture_black.onclick = function() { 
-    
-	var texture4 = new THREE.TextureLoader().load( "materials/blackwood.jpg" ); // vai buscar a textura
-	//var material4 = new THREE.MeshBasicMaterial( {  color: 0xffffff, map: texture4} ); // cria uma MESH com a textura escolhida(load)
-
-    // uma função que irá carregar a textura
-    nova_textura(texture4);    
-}
-*/
 //animar - sempre a última função
 animar();
 
