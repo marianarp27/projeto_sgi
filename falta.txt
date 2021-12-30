@@ -9,3 +9,4 @@ PÁGINA DO MÓVEL
 
 - terminar relatório - justificações
 - mudar o nome do gltf: os dois, pasta main e pasta threejs
+- botão de luz
