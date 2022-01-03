@@ -8,7 +8,8 @@ window.onload = function(){
         document.getElementById("overlay_canvas").classList.add("overlay_canvas_fade");        
     }, 2000); // 2 segundos depois do load da pagina
     setTimeout(function(){
-        document.getElementById("overlay_canvas").classList.add("d-none");  // d-none remove o display flex      
+        document.getElementById("overlay_canvas").classList.add("d-none");  // d-none remove o display flex    
+        document.getElementById("btn_reset").classList.remove("invisible");  
     }, 3000); // + 1 segundo da duração da animaçao opacity
 
     

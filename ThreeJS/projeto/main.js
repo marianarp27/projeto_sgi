@@ -1,3 +1,4 @@
+
 //cena
 var cena = new THREE.Scene();
 cena.background = new THREE.Color( 0xE3DAC9 );
@@ -43,6 +44,13 @@ camara.position.z = 13;
 camara.lookAt( 0, 0, 0 );
 
 
+function ButtonReset() {
+    camara.position.set(-5, 8, 13);
+    camara.lookAt( 0, 0, 0 ); 
+}
+
+
+
 //renderer
 var renderer = new THREE.WebGLRenderer({ canvas: meuCanvas }); //canvas
 renderer.shadowMap.enabled = true;
@@ -70,13 +78,12 @@ function ( gltf )
     globalObject = gltf; //store global reference to .obj --- uso na função nova_textura() 
     gltf.scene.traverse(function(x) { 
     if (x.isMesh) {
-        	
 
         //x.material.map = texture_init;        
         x.material = new THREE.MeshPhongMaterial({
             color:     0xEDE5DD, 
             specular:  0x373737,
-            shininess: 30,
+            shininess: 80,
             map:       texture_init,
             side:      THREE.DoubleSide
         });
@@ -111,8 +118,8 @@ function ( gltf )
 //pontos luz 
 /* var luzPonto1 = new THREE.PointLight( "white", 4, 0 , 2); // "white", 4, 0, 2 -- color, intensity, distance, decay
 luzPonto1.position.set( 20, 5, 20 ); //original 5,3,5, 202010 -- 10 5 10
-cena.add( luzPonto1 ); */
-/* 
+cena.add( luzPonto1 ); 
+
 var luzPonto2 = new THREE.PointLight( "white", 4, 0, 2);
 luzPonto2.position.set( -20, -5, -20 ); //original 5,3,5, 20,0,10
 cena.add( luzPonto2 ); */
@@ -125,66 +132,40 @@ cena.add(hemilight);
 var spotLight = new THREE.SpotLight(0xFFA95C, 1);
 spotLight.castShadow = true;
 cena.add(spotLight);
+ */
 
-var light1 = new THREE.PointLight( 0xffffff, 1.5, 2000 );
-light1.color.setHSL( 0.55, 1, 0.95); // cor da luz
-light1.position.set( 50, 10, 50 );
-cena.add( light1 );
-
-
-var light2 = new THREE.PointLight( 0xffffff, 1.5, 2000 );
-light2.color.setHSL( 0.55, 0.9, 0.5);
-light2.position.set( -50, -10, -50 );
-cena.add( light2 );
-
-var helper =  new THREE.PointLightHelper( luzPonto1 ); 
-var helper2 =  new THREE.PointLightHelper( light1 ); 
-var helper3 =  new THREE.PointLightHelper( light2 ); 
-
-cena.add( helper2,  helper3); */
-
+// light inside table
+var spotLight_inside = new THREE.SpotLight(0xB4B4B4, 0.3);
+spotLight_inside.position.set( 0, 3,  0);
+spotLight_inside.castShadow = true;
+cena.add(spotLight_inside);
 
 
 // LIGHTS
 var ambientLight = new THREE.AmbientLight( 0x333333 );
-cena.add(ambientLight); 
 
 var hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444 );
 hemiLight.position.set( 0, 20, 0 );
-cena.add( hemiLight );
+cena.add( ambientLight, hemiLight );
 
 
-
-/* var pointLight1 = new THREE.PointLight( 0xEDE5DD, 1.5, 100 );
-pointLight1.position.set( 20, 5, 50);
-var pointLight2 = new THREE.PointLight( 0xEDE5DD, 1.5, 100 );
-pointLight2.position.set( -20, -5, -50 );
-cena.add( pointLight1, pointLight2); */
-
-
-
-var spotLight1 = new THREE.SpotLight( 0xEDE5DD);
+var spotLight1 = new THREE.SpotLight( 0x7A7572);
 spotLight1.position.set( 100, 200, 500 );
 
-var spotLight2 = new THREE.SpotLight( 0xEDE5DD);
+var spotLight2 = new THREE.SpotLight( 0x7A7572);
 spotLight2.position.set( -100, -200, -500 );
 
+var dirLight = new THREE.DirectionalLight( 0xBEB7B1 );
+dirLight.position.set( 500, 0, 400 ); 
 
-var helper3 =  new THREE.SpotLightHelper( spotLight1 ); 
-var helper4 =  new THREE.SpotLightHelper( spotLight2 ); 
-cena.add( spotLight1, spotLight2, helper3, helper4 );
+cena.add( spotLight1, spotLight2, dirLight ); 
 
-/* var dirLight1 = new THREE.DirectionalLight( 0xffffff );
-dirLight1.position.set( 100, 50, 400 ); //  30, -5, 20
-cena.add( dirLight1 );
-
-var helper5 =  new THREE.DirectionalLightHelper( dirLight1 ); 
-cena.add( helper5 ); */
-
-/* ******************************************** */
-//  defenir SpotLight para butão de ligar/desligar a luz adicional 
-spot_light_toggle = new THREE.SpotLight( 0xEDE5DD );
-spot_light_toggle.position.set( 50, 80, 500 );    
+/* ------------------------------------------------------------ */
+// --- SpotLight para butão de ligar/desligar a luz adicional  ---
+var dirLight_toggle = new THREE.DirectionalLight( 0xEFEDE9 );
+dirLight_toggle.position.set( -150, 50, 100 ); 
+/* var helper5 =  new THREE.DirectionalLightHelper( dirLight_toggle ); 
+cena.add( dirLight_toggle, helper5 ); */
 
 function ButtonToggleLight() {
     var toggleLight = document.getElementById("btn_light");
@@ -192,14 +173,14 @@ function ButtonToggleLight() {
 
     if (toggleLight.value == "ON"){ 
         toggleLight.value = "OFF";
-        cena.remove( spot_light_toggle ); // remove o SpotLight
+        cena.remove( dirLight_toggle ); // remove o SpotLight
 
     } else if (toggleLight.value == "OFF") {
         toggleLight.value = "ON";
-        cena.add( spot_light_toggle ); // adiciona o SpotLight
+        cena.add( dirLight_toggle ); // adiciona o SpotLight
     }
 }
-/* ******************************************** */
+/* ------------------------------------------------------------ */
 
 
 
@@ -264,7 +245,7 @@ function nova_textura(textura) {
         x.material = new THREE.MeshPhongMaterial({
             color:     0xEDE5DD, 
             specular:  0x373737,
-            shininess: 30,
+            shininess: 80,
             map:       textura,
             side:      THREE.DoubleSide
         });

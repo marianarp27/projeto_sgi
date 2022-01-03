@@ -106,6 +106,13 @@
   opacity: 0;
 }
 
+/* btn reset position */
+.ThreeJS_Canvas #btn_reset {
+  margin-top: 373px;
+  position: absolute;
+  cursor: pointer;
+}
+
 
 /* --------------------------------------------------------- */
 /* ---------------- ARTIGO INFO - Lateral ------------------ */
