@@ -32,7 +32,7 @@ var parar = document.getElementById('btn_stop');
 var light = document.getElementById('btn_light');
 //var colorWhite = document.getElementById('btn_white');
 var btn_texture_brown = document.getElementById('Castanho_label');
-var btn_texture_white = document.getElementById('Beje_label');
+var btn_texture_white = document.getElementById('Bege_label');
 var btn_texture_black = document.getElementById('Preto_label');
 
 //camera
