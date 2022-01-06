@@ -30,7 +30,6 @@ var ativar = document.getElementById('btn_play');
 var pausar = document.getElementById('btn_pause');
 var parar = document.getElementById('btn_stop');
 var light = document.getElementById('btn_light');
-//var colorWhite = document.getElementById('btn_white');
 var btn_texture_brown = document.getElementById('Castanho_label');
 var btn_texture_white = document.getElementById('Bege_label');
 var btn_texture_black = document.getElementById('Preto_label');
@@ -49,8 +48,6 @@ function ButtonReset() {
     camara.lookAt( 0, 0, 0 ); 
 }
 
-
-
 //renderer
 var renderer = new THREE.WebGLRenderer({ canvas: meuCanvas }); //canvas
 renderer.shadowMap.enabled = true;
@@ -60,7 +57,7 @@ renderer.render( cena, camara );
 //orbitcontrols
 var controlos = new THREE.OrbitControls( camara, renderer.domElement );
 
-//função de animação
+//função de animação 
 function animar() { 
     requestAnimationFrame( animar );
     misturador.update( relogio.getDelta()); //ativar misturador
@@ -72,14 +69,13 @@ var texture_init = new THREE.TextureLoader().load( "materials/Wood051_1K_Color.p
 
 //loader de Gltf + luz
 var carregador = new THREE.GLTFLoader();
-carregador.load( 'workBench_certo.gltf', 
+carregador.load( 'workBench.gltf', 
 function ( gltf )
  { 
     globalObject = gltf; //store global reference to .obj --- uso na função nova_textura() 
     gltf.scene.traverse(function(x) { 
     if (x.isMesh) {
-
-        //x.material.map = texture_init;        
+     
         x.material = new THREE.MeshPhongMaterial({
             color:     0xEDE5DD, 
             specular:  0x373737,
@@ -113,27 +109,6 @@ function ( gltf )
     acaoRightDoor.setLoop(THREE.LoopOnce);
 } );
 
-
-    
-//pontos luz 
-/* var luzPonto1 = new THREE.PointLight( "white", 4, 0 , 2); // "white", 4, 0, 2 -- color, intensity, distance, decay
-luzPonto1.position.set( 20, 5, 20 ); //original 5,3,5, 202010 -- 10 5 10
-cena.add( luzPonto1 ); 
-
-var luzPonto2 = new THREE.PointLight( "white", 4, 0, 2);
-luzPonto2.position.set( -20, -5, -20 ); //original 5,3,5, 20,0,10
-cena.add( luzPonto2 ); */
-
-/* var luzAmbiente = new THREE.AmbientLight( 0xffffff );
-cena.add(luzAmbiente); */
-
-/* var hemilight = new THREE.HemisphereLight(0xffeeb1, 0x080820, 1); // 0xffeeb1, 0x080820, 1
-cena.add(hemilight);
-var spotLight = new THREE.SpotLight(0xFFA95C, 1);
-spotLight.castShadow = true;
-cena.add(spotLight);
- */
-
 // light inside table
 var spotLight_inside = new THREE.SpotLight(0xB4B4B4, 0.3);
 spotLight_inside.position.set( 0, 3,  0);
@@ -160,16 +135,12 @@ dirLight.position.set( 500, 0, 400 );
 
 cena.add( spotLight1, spotLight2, dirLight ); 
 
-/* ------------------------------------------------------------ */
-// --- SpotLight para butão de ligar/desligar a luz adicional  ---
+// --- SpotLight para botão de ligar/desligar a luz adicional  ---
 var dirLight_toggle = new THREE.DirectionalLight( 0xEFEDE9 );
 dirLight_toggle.position.set( -150, 50, 100 ); 
-/* var helper5 =  new THREE.DirectionalLightHelper( dirLight_toggle ); 
-cena.add( dirLight_toggle, helper5 ); */
 
 function ButtonToggleLight() {
     var toggleLight = document.getElementById("btn_light");
-    //console.log(toggleLight.value);
 
     if (toggleLight.value == "ON"){ 
         toggleLight.value = "OFF";
@@ -181,8 +152,6 @@ function ButtonToggleLight() {
     }
 }
 /* ------------------------------------------------------------ */
-
-
 
 //ANIMAÇÕES DOS BOTÕES
 //PLAY
@@ -214,34 +183,10 @@ function fazerpausa(){
 }
 pausar.addEventListener("click", fazerpausa);
 
-           
-
-//LIGHT
-/*  function addlight(){
-    spot_light = new THREE.SpotLight( 0xffffff, 1 );
-    spot_light.position.set( 40, 50, 200 );    
-
-    lightHelper1 = new THREE.SpotLightHelper( spot_light );
-    cena.add( spot_light, lightHelper1 );
-
-}
-light.addEventListener("click", addlight);  */
-
-
-
-
 // função que muda a textura do objeto
 function nova_textura(textura) {
     globalObject.scene.traverse( function ( x ) {   
             
-       /*  if (x.isMesh) {
-            x.castShadow = true;
-            x.receiveShadow = true;	
-            x.material.map = textura; //x.material.texture2,map
-            cena.getObjectByName('stoneBench').material.map = new THREE.TextureLoader().load( "materials/Marble018_1K_Color.jpg" );
-            //x.material.needsUpdate = true;
-        } */ 
-        
         x.material = new THREE.MeshPhongMaterial({
             color:     0xEDE5DD, 
             specular:  0x373737,
